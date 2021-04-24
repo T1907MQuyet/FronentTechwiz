@@ -1,0 +1,7 @@
+.dropdown-menu {
+    text-transform: capitalize;
+}
+
+.d-flex {
+    display: flex !important;
+}

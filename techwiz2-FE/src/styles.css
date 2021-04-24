@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+h3 {
+    font-variant: lining-nums;
+}
+
+
+.p-0 {
+    padding: 0;
+}
+
+.product-img {
+    cursor: pointer;
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+.product-img img {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: 100%;
+    height: 50%;
+    object-fit: contain;
+    transform: translate(-50%, 50%);
+}
+
+.list-style-none {
+    list-style-type: none;
+}
+
+
+.product-img {
+    position: relative;
+}
+
+.label-category {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.category--name {
+    padding: 2px 5px;
+    background-color: #f9c56a;
+    border-radius: 5px 0px 0px 5px;
+    color: #fff;
+    
+}
+
+.text-lineThrough {
+    text-decoration: line-through;
+}

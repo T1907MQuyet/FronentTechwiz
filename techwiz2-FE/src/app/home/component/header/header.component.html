@@ -1,0 +1,102 @@
+<nav class="navbar navbar-fixed-top" style="background: rgba(0, 0, 0, 0.3);">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img src="/assets/Home/img/nav-logo.png" alt="nav-logo">
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a routerLinkActive="active" routerLink="/index.html" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">Home<span class="caret"></span></a>
+                   
+                </li>
+                <li class="dropdown">
+                    <a routerLinkActive="active" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a routerLinkActive="active" routerLink="/list-product">List product</a></li>
+                        <li><a routerLinkActive="active" routerLink="/menu_overlay.html">Menu - Overlay</a></li>
+                        <li><a routerLinkActive="active" routerLink="/menu_tile.html">Menu - Tile</a></li>
+                        <li><a routerLinkActive="active" routerLink="/menu_grid.html">Menu - Grid</a></li>
+                        <li><a routerLinkActive="active" routerLink="/menu_all.html">Menu All</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a routerLinkActive="active"  class="dropdown-toggle" data-toggle="dropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">Shop<span class="caret"></span></a>
+                    <ul class="dropdown-menu row">
+                        <!-- <li><a routerLinkActive="active" routerLink="/list-product">List Product</a></li> -->
+                        <li *ngFor="let category of ListCategoryActive" class="col-4">
+                            <span>{{ category.cate_name }}
+                            </span>
+                        </li>
+                        <li class="col-12">
+                            <ul class="list-style-none">
+                                <!-- <li><a routerLinkActive="active" routerLink="/list-product">List Product</a></li> -->
+                                <li *ngFor="let categoryDetail of ListCategoryDetailActive">
+                                    <a routerLinkActive="active" routerLink="/category/category-detail/id/{{ categoryDetail[0].cate_detail_id }}">
+                                        {{ categoryDetail[0].cate_detail_name }}
+                                    </a>
+                                </li>
+                            
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    
+                </li>
+                <li><a routerLinkActive="active" routerLink="/contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a class="css-pointer dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                        aria-expanded="false"><i class="fa fa-shopping-cart fsc pull-left"></i><span
+                            class="cart-number">3</span><span class="caret"></span></a>
+                    <div class="cart-content dropdown-menu">
+                        <div class="cart-title">
+                            <h4>Shopping Cart</h4>
+                        </div>
+                        <div class="cart-items">
+                            <div class="cart-item clearfix">
+                                <div class="cart-item-image">
+                                    <a routerLinkActive="active" routerLink="/shop_single_full.html"><img src="/assets/Home/img/cart-img1.jpg"
+                                            alt="Breakfast with coffee"></a>
+                                </div>
+                                <div class="cart-item-desc">
+                                    <a routerLinkActive="active" routerLink="/shop_single_full.html">Breakfast with coffee</a>
+                                    <span class="cart-item-price">$19.99</span>
+                                    <span class="cart-item-quantity">x 2</span>
+                                    <i class="fa fa-times ci-close"></i>
+                                </div>
+                            </div>
+                            <div class="cart-item clearfix">
+                                <div class="cart-item-image">
+                                    <a routerLinkActive="active" routerLink="/shop_single_full.html"><img src="/assets/Home/img/cart-img2.jpg"
+                                            alt="Chicken stew"></a>
+                                </div>
+                                <div class="cart-item-desc">
+                                    <a routerLinkActive="active" routerLink="/shop_single_full.html">Chicken stew</a>
+                                    <span class="cart-item-price">$24.99</span>
+                                    <span class="cart-item-quantity">x 3</span>
+                                    <i class="fa fa-times ci-close"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-action clearfix">
+                            <span class="pull-left checkout-price">$ 114.95</span>
+                            <a class="btn btn-default pull-right" routerLinkActive="active" routerLink="/shop_cart.html">View Cart</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="21px" viewBox="0 0 22 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>D42FBEBA-0266-467B-8E8B-284AFEF3F5AB-2002-0000593E1CDDD5A6</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="30" height="30"></rect>
+    </defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="07_LocationFinder_Results_MapView_Expanded" transform="translate(-1167.000000, -168.000000)">
+            <g id="Components/Restaurant-Locator/Desktop" transform="translate(136.000000, 146.000000)">
+                <g transform="translate(-1.998289, 0.000000)" id="Elements/Button/Secondary-with-Icon/Locate-Me">
+                    <g transform="translate(1010.135158, 8.000000)">
+                        <g id="Icons/Locate">
+                            <g transform="translate(19.000000, 10.000000)">
+                                <g>
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <g id="Mask"></g>
+                                    <g mask="url(#mask-2)">
+                                        <g transform="translate(4.000000, 4.000000)">
+                                            <rect id="Rectangle" fill="#60605B" fill-rule="evenodd" x="10" y="-3.66373598e-15" width="1" height="5" rx="0.5"></rect>
+                                            <rect id="Rectangle" fill="#60605B" fill-rule="evenodd" x="10" y="16" width="1" height="5" rx="0.5"></rect>
+                                            <rect id="Rectangle" fill="#60605B" fill-rule="evenodd" x="0" y="10" width="5" height="1" rx="0.5"></rect>
+                                            <rect id="Rectangle" fill="#60605B" fill-rule="evenodd" x="16" y="10" width="5" height="1" rx="0.5"></rect>
+                                            <path d="M10.5014038,3 C6.35853991,3 3,6.35865612 3,10.5016634 C3,14.6446706 6.35853991,18.0033267 10.5014038,18.0033267 C14.6442677,18.0033267 18.0028076,14.6446706 18.0028076,10.5016634 C18.0028076,6.35865612 14.6442677,3 10.5014038,3 Z M10.5014038,2 C15.1965602,2 19.0028076,5.80637911 19.0028076,10.5016634 C19.0028076,15.1969476 15.1965602,19.0033267 10.5014038,19.0033267 C5.80624741,19.0033267 2,15.1969476 2,10.5016634 C2,5.80637911 5.80624741,2 10.5014038,2 Z" id="stroke-gray" fill="#60605B" fill-rule="nonzero"></path>
+                                            <path d="M10.5,13 C9.11928813,13 8,11.8807119 8,10.5 C8,9.11928813 9.11928813,8 10.5,8 C11.8807119,8 13,9.11928813 13,10.5 C13,11.8807119 11.8807119,13 10.5,13 Z" id="Oval-Copy-2" fill="#00A9E7" fill-rule="nonzero"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
