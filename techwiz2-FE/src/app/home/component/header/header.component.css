@@ -5,3 +5,42 @@
 .d-flex {
     display: flex !important;
 }
+
+.navbar-nav {
+    width: 50%;
+}
+
+.box-category-categoryDetail.show {
+    display: flex !important;
+}
+
+.col-4 {
+    width: 25%;
+}
+
+.box-category-categoryDetail a {
+    color: #000;
+}
+
+.box-category-categoryDetail {
+    width: 80%;
+    margin: auto;
+    left: 0;
+    padding: 40px;
+    background-color: #fff;
+}
+
+.box-category-categoryDetail .category--name {
+    color: #000;
+    font-weight: bold;
+    font-size: 24px;
+    background-color: transparent;
+}
+
+.box-category-categoryDetail .dropdown {
+    padding-left: 5px;
+}
+
+.box-category-categoryDetail .dropdown li a {
+    color: #000000de;
+}

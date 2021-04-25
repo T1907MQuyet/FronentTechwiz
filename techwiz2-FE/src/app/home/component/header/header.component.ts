@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/_service/home/category/category.service';
+import { order } from 'src/app/_model/order';
 
 @Component({
   selector: 'app-header',
@@ -16,13 +17,13 @@ export class HeaderComponent implements OnInit {
   ListCategoryDetailActive = [];
 
   listCategoryandCateDetail = [
-    {
-      categoryName: '',
-      categoryDetail: []
-    }
+    
+   
   ]
   ngOnInit(): void {
     this.getAllcategoryActive();
+      console.log(order);
+
   }
 
   getAllcategoryActive() {
@@ -50,12 +51,5 @@ export class HeaderComponent implements OnInit {
     )
   }
 
-  // getAllcategoryDetailByCategoryID(id) {
-  //   this.category.getAllcategoryDetailByCategoryID(id).subscribe(
-  //     data => {
-  //       this.ListCategoryDetailActive = data;
-  //       console.log(data);
-  //     }
-  //   )
-  // }
+
 }

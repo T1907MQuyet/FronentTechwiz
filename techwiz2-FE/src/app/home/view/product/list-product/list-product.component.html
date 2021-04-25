@@ -116,7 +116,7 @@
                                 </div>
                                 <h4><a routerLinkActive="active" routerLink="/product-detail/id/{{ product.product_id }}">{{ product.product_name }}</a></h4>
                                
-                                <div class="product-price d-block">{{ product.price | currency:'$' }} <span class="text-lineThrough">{{ product.discount | currency:'$' }}</span></div>
+                                <div class="product-price d-block ssp">{{ product.price | currency:'$' }} <span>{{ product.discount | currency:'$' }}</span></div>
                                 <div class="shop-meta">
                                     <a routerLinkActive="active" routerLink="/shop_single_left.html"
                                         class="pull-left"><i class="fa fa-shopping-cart"></i> Add to cart</a>

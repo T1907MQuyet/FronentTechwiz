@@ -1,4 +1,4 @@
-<section class="recipie-single single-recipe">
+<!-- <section class="recipie-single single-recipe">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -25,51 +25,160 @@
                 </ul>
                 <h3 class="heading-bottom-line">Descriptions</h3>
                 <p>{{ inforProduct.descriptions }}</p>
-               
-                <!-- <div class="nutrition-table">
-                    <h3 class="heading-bottom-line">Nutrition</h3>
-                    <div class="table-responsive">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>Nutrient</th>
-                                    <th>DV</th>
-                                    <th>%DV</th>
-                                </tr>
-                                <tr>
-                                    <td>Protein</td>
-                                    <td>3.2 gr</td>
-                                    <td>5%<span class="progressbar"><span class="level-3"></span></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Fat</td>
-                                    <td>6.5 gr</td>
-                                    <td>6%<span class="progressbar"><span class="level-6"></span></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Carbohydrates</td>
-                                    <td>3.2 gr</td>
-                                    <td>9%<span class="progressbar"><span class="level-4"></span></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Calories</td>
-                                    <td>4.8 gr</td>
-                                    <td>2%<span class="progressbar"><span class="level-8"></span></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Cholesterol</td>
-                                    <td>102 kcal</td>
-                                    <td>8%<span class="progressbar"><span class="level-10"></span></span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="page_header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 class="text-uppercase">Shop Listing</h2>
+                <p>Tomato is a delicious restaurant website template</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="shop-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="single-shop-carousel">
+                    <div>
+                        <img class="img-responsive" src="/assets/Home/img/shop/single/1.jpg" alt="">
                     </div>
-                </div> -->
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-md-6 shop-single-info">
+                <div class="shop-single-title">
+                    <h3 class="text-left">{{ inforProduct.product_name }}</h3>
+                </div>
+                <div class="shop-single-price">
+                    <div class="ssp pull-left">{{ inforProduct.price | currency:'$' }} <span>{{ inforProduct.discount
+                        | currency:'$' }}</span></div>
+                </div>
+                <p>{{ inforProduct.descriptions }}</p>
+                <div class="quantity">
+                    <div class="d-inline-flex">
+                        <button type="button" class="btn btn-default" (click)="plusOrMinus(true, quantityInput.value)" >
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus"
+                                    viewBox="0 0 16 16">
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                </svg>
+                            </span>
+                        </button>
+                        <input type="number" #quantityInput [(ngModel)]="quantity" (blur)="abs(quantityInput.value)">
+                        <button type="button" class="btn btn-default" (click)="plusOrMinus(false, quantityInput.value)">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash"
+                                viewBox="0 0 16 16">
+                                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                            </svg>
+                        </span>
+                        </button>
+                    </div>
+                    <a  class="btn btn-success left-space-sm pull-right">Buy
+                        Now</a>
+                    <a class="btn btn-default pull-right" (click)="AddtoCart()">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="shop-products">
+            <h6>More Food Items</h6>
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-info">
+                        <div class="product-img">
+                            <img src="/assets/Home/img/shop/1.png" alt="" />
+                        </div>
+                        <h4><a href="./recipe_detail-image.html">Food Name</a></h4>
+                        <div class="rc-ratings">
+                            <span class="fa fa-star active"></span>
+                            <span class="fa fa-star active"></span>
+                            <span class="fa fa-star active"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <div class="product-price">$100</div>
+                        <div class="shop-meta">
+                            <a href="./shop_single_left.html" class="pull-left"><i class="fa fa-shopping-cart"></i> Add
+                                to cart</a>
+                            <a href="./shop_right_sidebar.html" class="pull-right"><i class="fa fa-heart-o"></i>
+                                Wishlist</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-info">
+                        <div class="product-img">
+                            <img src="/assets/Home/img/shop/2.png" alt="" />
+                        </div>
+                        <h4><a href="./recipe_detail-image.html">Food Name</a></h4>
+                        <div class="rc-ratings">
+                            <span class="fa fa-star active"></span>
+                            <span class="fa fa-star active"></span>
+                            <span class="fa fa-star active"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <div class="product-price">$100</div>
+                        <div class="shop-meta">
+                            <a href="./shop_single_left.html" class="pull-left"><i class="fa fa-shopping-cart"></i> Add
+                                to cart</a>
+                            <a href="./shop_right_sidebar.html" class="pull-right"><i class="fa fa-heart-o"></i>
+                                Wishlist</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-info">
+                        <div class="product-img">
+                            <img src="/assets/Home/img/shop/3.png" alt="" />
+                        </div>
+                        <h4><a href="./recipe_detail-image.html">Food Name</a></h4>
+                        <div class="rc-ratings">
+                            <span class="fa fa-star active"></span>
+                            <span class="fa fa-star active"></span>
+                            <span class="fa fa-star active"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <div class="product-price">$100</div>
+                        <div class="shop-meta">
+                            <a href="./shop_single_left.html" class="pull-left"><i class="fa fa-shopping-cart"></i> Add
+                                to cart</a>
+                            <a href="./shop_right_sidebar.html" class="pull-right"><i class="fa fa-heart-o"></i>
+                                Wishlist</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-info">
+                        <div class="product-img">
+                            <img src="/assets/Home/img/shop/4.png" alt="" />
+                        </div>
+                        <h4><a href="./recipe_detail-image.html">Food Name</a></h4>
+                        <div class="rc-ratings">
+                            <span class="fa fa-star active"></span>
+                            <span class="fa fa-star active"></span>
+                            <span class="fa fa-star active"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <div class="product-price">$100</div>
+                        <div class="shop-meta">
+                            <a href="./shop_single_left.html" class="pull-left"><i class="fa fa-shopping-cart"></i> Add
+                                to cart</a>
+                            <a href="./shop_right_sidebar.html" class="pull-right"><i class="fa fa-heart-o"></i>
+                                Wishlist</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
