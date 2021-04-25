@@ -6,6 +6,9 @@ import { ListProductByCategory } from './view/product/list-product/list-product-
 import { HomePageComponent } from './view/home-page/home-page.component';
 import { ListProductComponent } from './view/product/list-product/list-product.component';
 import { ProductDetailComponent } from './view/product/product-detail/product-detail.component';
+import { OrderDetailComponent } from './view/order-detail/order-detail.component';
+import { LoginComponent } from './authen/login/login.component';
+import { RegisterComponent } from './authen/register/register.component';
 
 const routes: Routes = [
   {
@@ -18,10 +21,19 @@ const routes: Routes = [
     },
     {
       path: 'category/category-detail/id/:id', component: ListProductByCategory
-      },
-      {
-        path: 'product-detail/id/:id', component: ProductDetailComponent
-      }, 
+    },
+    {
+      path: 'product-detail/id/:id', component: ProductDetailComponent
+    },
+    {
+      path: 'order', component: OrderDetailComponent
+    },
+    {
+      path: 'login', component: LoginComponent
+    },
+    {
+      path: 'register', component: RegisterComponent
+    },
     {
       path: '**', component: HomePageComponent,
     }

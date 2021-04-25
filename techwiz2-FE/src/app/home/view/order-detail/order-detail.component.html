@@ -1,0 +1,84 @@
+<section class="page_header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 class="text-uppercase">Cart</h2>
+                <p>Checkout or add some items to your cart</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="shop-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h3 *ngIf="listOrder.length == 0" class="text-center py-3 mb-5">Empty cart<br />
+                </h3>
+                <h4 *ngIf="listOrder.length == 0" class="text-center py-3">
+                    <a routerLink="/list-product" class="link-buy">Shop now</a>
+                </h4>
+
+                <table class="cart-table table table-bordered" *ngIf="listOrder.length > 0">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let order of listOrder">
+                            <td>
+                                <button class="btn remove btn-default" (click)="DeleteAnOrder(order.order_id)"><i
+                                        class="fa fa-times"></i></button>
+                            </td>
+                            <td>
+                                <a routerLink="/product-detail/id/{{ order.product_id }}"><img
+                                        [src]="'https://res.cloudinary.com/alpha1111/image/upload/v1619098856/zshaogd4tuxxuv48admb.jpg'"
+                                        [alt]="order.image" width="90px" height="90px" />
+                                    <!-- <img [src]="'https://res.cloudinary.com/alpha1111/image/upload/v1619098856/' + order.image"
+                                        [alt]="order.image" width="90px" height="90px" /> -->
+                                </a>
+                            </td>
+                            <td>
+                                <a routerLink="/product-detail/id/{{ order.product_id }}" style="color: #f9c56a;">{{
+                                    order.product_name }}</a>
+                            </td>
+                            <td>
+                                <span class="amount ssp">{{ order.price | currency:'$' }} <span>{{ order.discount |
+                                        currency:'$' }}</span></span>
+                            </td>
+                            <td>
+                                <div class="quantity">{{ order.order_count }}</div>
+                            </td>
+                            <td>
+                                <span class="amount">{{ order.price * order.order_count | currency:'$' }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" class="row" style="padding-top: 25px">
+                                <div class="col-md-6">
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="cart-btn">
+                                        <span class="btn float-left border-bottom"
+                                            style="font-variant: lining-nums;">Order Total: {{ totalPrice | currency:'$'
+                                            }}</span>
+                                        <button class="btn btn-success" type="submit"
+                                            onclick="window.open('./shop_checkout.html', '_self')">Checkout</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

@@ -8,15 +8,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" routerLink="home">
                 <img src="/assets/Home/img/nav-logo.png" alt="nav-logo">
             </a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse d-flex justify-content-center">
+        <div id="navbar" class="navbar-collapse collapse d-flex justify-content-end">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a routerLinkActive="active" routerLink="/index.html" class="dropdown-toggle" data-toggle="dropdown"
-                        role="button" aria-haspopup="true" aria-expanded="false">Home<span class="caret"></span></a>
+                    <a routerLinkActive="active" routerLink="home" class="dropdown-toggle" data-toggle="dropdown"
+                        role="button" aria-haspopup="true" aria-expanded="false">Home</a>
 
                 </li>
                 <li class="dropdown">
@@ -58,47 +58,18 @@
 
                 </li>
                 <li><a routerLinkActive="active" routerLink="/contact.html">Contact</a></li>
+               
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a class="css-pointer dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                        aria-expanded="false"><i class="fa fa-shopping-cart fsc pull-left"></i><span
-                            class="cart-number">3</span><span class="caret"></span></a>
-                    <div class="cart-content dropdown-menu">
-                        <div class="cart-title">
-                            <h4>Shopping Cart</h4>
-                        </div>
-                        <div class="cart-items">
-                            <div class="cart-item clearfix">
-                                <div class="cart-item-image">
-                                    <a routerLinkActive="active" routerLink="/shop_single_full.html"><img
-                                            src="/assets/Home/img/cart-img1.jpg" alt="Breakfast with coffee"></a>
-                                </div>
-                                <div class="cart-item-desc">
-                                    <a routerLinkActive="active" routerLink="/shop_single_full.html">Breakfast with
-                                        coffee</a>
-                                    <span class="cart-item-price">$19.99</span>
-                                    <span class="cart-item-quantity">x 2</span>
-                                    <i class="fa fa-times ci-close"></i>
-                                </div>
-                            </div>
-                            <div class="cart-item clearfix">
-                                <div class="cart-item-image">
-                                    <a routerLinkActive="active" routerLink="/shop_single_full.html"><img
-                                            src="/assets/Home/img/cart-img2.jpg" alt="Chicken stew"></a>
-                                </div>
-                                <div class="cart-item-desc">
-                                    <a routerLinkActive="active" routerLink="/shop_single_full.html">Chicken stew</a>
-                                    <span class="cart-item-price">$24.99</span>
-                                    <span class="cart-item-quantity">x 3</span>
-                                    <i class="fa fa-times ci-close"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cart-action clearfix">
-                            <span class="pull-left checkout-price">$ 114.95</span>
-                            <a class="btn btn-default pull-right" routerLinkActive="active"
-                                routerLink="/shop_cart.html">View Cart</a>
-                        </div>
-                    </div>
+                    <a class="css-pointer dropdown-toggle d-inline" routerLinkActive="active" routerLink="/login">
+                        Login
+                    </a>
+                </li>
+                <li class="dropdown"><a class="css-pointer dropdown-toggle d-inline" routerLinkActive="active" routerLink="/register">
+                        Register
+                    </a>
                 </li>
             </ul>
         </div>

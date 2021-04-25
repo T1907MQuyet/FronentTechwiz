@@ -1,0 +1,27 @@
+.btn-cart-float {
+    position: fixed;
+    width: 90px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    /* background-color: #0c9; */
+    background-color: #f9c56a;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 4px 4px 6px #3d3b3b;
+    opacity: 0.75;
+    
+    cursor: pointer;
+    z-index: 10;
+}
+
+.fa-shopping-cart {
+    display: inline-block;
+    font-size: 4rem;
+    transform: translate(25px, 5px);
+}
+
+.btn-cart-float:hover {
+    opacity: 1;
+}
