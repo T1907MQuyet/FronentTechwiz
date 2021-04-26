@@ -33,7 +33,8 @@ import { RegisterComponent } from './authen/register/register.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }

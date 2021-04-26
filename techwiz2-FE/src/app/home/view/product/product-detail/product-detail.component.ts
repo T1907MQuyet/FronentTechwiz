@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/app/_model/environment';
-import { order } from 'src/app/_model/order';
+import { Order, order } from 'src/app/_model/order';
 import { OrderService } from 'src/app/_service/home/order/order.service';
 import { ProductService } from 'src/app/_service/home/product/product.service';
 
@@ -19,7 +20,7 @@ export class ProductDetailComponent implements OnInit {
   ) { }
 
   contain;
-
+  listOrderInLocal = new BehaviorSubject<Order>(JSON.parse(localStorage.getItem('order'))).value;
   quantity = 1;
   inforProduct = {
     "product_id": 1,
@@ -58,6 +59,15 @@ export class ProductDetailComponent implements OnInit {
 
       }
     )
+
+    // for (const key in this.listOrderInLocal) {
+    //   if (Object.prototype.hasOwnProperty.call(this.listOrderInLocal, key)) {
+    //     const element = this.listOrderInLocal[key];
+    //     this.orderSv.pushOrder(element);
+        
+    //   }
+    // }
+
   }
 
 
@@ -82,7 +92,7 @@ export class ProductDetailComponent implements OnInit {
   AddtoCart() {
     if (this.isAdd == false) {
       // order.push(
-      let order = {
+      let orderDetail = {
         "order_id": this.inforProduct.product_id,
 
         "product_id": this.inforProduct.product_id,
@@ -95,21 +105,26 @@ export class ProductDetailComponent implements OnInit {
       }
       this.showAlert = true;
       this.offsau2s();
-      this.orderSv.pushOrder(order);
+      console.log(orderDetail);
+      
+      this.orderSv.pushOrder(orderDetail);
       this.isAdd = true;
     }
 
     else {
+      // this.setValueForOrderInListOrderLocal();
+      console.log(order);
+      
       order.forEach(e => {
+        console.log(e);
+        
         if (e.order_id == this.inforProduct.product_id) {
-          e.order_count = this.quantity + e.order_count;
-          this.showAlert = !this.showAlert;
-          if (this.showAlert == false) {
-            this.orderSv.upgradeOrder(e);
-          }
-          else {
+          this.showAlert = !this.showAlert;            
+            e.order_count = this.quantity + e.order_count;            
+            this.orderSv.upgradeOrderInLocal(e);            
+          
             this.offsau2s();
-          }
+          
         }
       })
     }
@@ -119,6 +134,15 @@ export class ProductDetailComponent implements OnInit {
     setTimeout(() => {
       this.showAlert = false;
     }, 2000);
+  }
+
+  setValueForOrderInListOrderLocal() {
+    for (const key in this.listOrderInLocal) {
+      if (Object.prototype.hasOwnProperty.call(this.listOrderInLocal, key)) {
+        const element = this.listOrderInLocal[key];
+        order.push(element)
+      }
+    }
   }
 
 }

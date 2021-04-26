@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { User } from '../_model/User';
 import { environment } from '../_model/environment';
+import { order } from '../_model/order';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
@@ -24,36 +25,29 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
+  register(val) {
+    return this.http.post(environment.apiUrl + 'customer/register', val)
+  }
+
   login(username: string, password: string) {
     console.log(username, password);
 
-    return this.http.post<any>(`http://localhost:8888/api/customer/login`, { username, password })
+    return this.http.post<any>(`http://localhost:8888/api/customer/login?email=${username}&password=${password}`, username)
       .pipe(map(user => {
         
         if (user) {
+          console.log(user);
+          
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(user));
+          
+
           this.currentUserSubject.next(user);
         }
         return user;
       }));
   }
-  // Login for User
-  loginUser(username: string, password: string) {
-    var login = {
-      "Email": username,
-      "password": password
-    }
-    return this.http.post<any>(environment.apiUrl + 'users/login', login)
-      .pipe(map(user => {
-        if (user) {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.currentUserSubject.next(user);
-        }
-        return user;
-      }));
-  }
+ 
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');

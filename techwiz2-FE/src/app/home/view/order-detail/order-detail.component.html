@@ -12,7 +12,7 @@
 <section class="shop-content">
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-10 col-md-offset-1"> 
                 <h3 *ngIf="listOrder.length == 0" class="text-center py-3 mb-5">Empty cart<br />
                 </h3>
                 <h4 *ngIf="listOrder.length == 0" class="text-center py-3">
@@ -34,7 +34,7 @@
 
                         <tr *ngFor="let order of listOrder">
                             <td>
-                                <button class="btn remove btn-default" (click)="DeleteAnOrder(order.order_id)"><i
+                                <button class="btn remove btn-default" (click)="DeleteAnOrder(order)"><i
                                         class="fa fa-times"></i></button>
                             </td>
                             <td>

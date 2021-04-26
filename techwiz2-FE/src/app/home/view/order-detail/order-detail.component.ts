@@ -10,32 +10,46 @@ import { OrderService } from 'src/app/_service/home/order/order.service';
 export class OrderDetailComponent implements OnInit {
 
   constructor(
-    private orderService: OrderService
+    private orderService: OrderService,
   ) { }
 
-  listOrder;
+  listOrder = [];
+  
   totalPrice = 0;
   ngOnInit(): void {
-    this.listOrder = this.orderService.getAllOrder();
-    this.listOrder.forEach(e => {
-      console.log(e);
-      
+    let i = -1;
+    for (const key in this.orderService.listOrderInLocal) {
+      i++;
+      if (Object.prototype.hasOwnProperty.call(this.orderService.listOrderInLocal, key)) {
+        const element = this.orderService.listOrderInLocal[key];
+        element.id = i;
+        this.listOrder.push(element);
+      }
+    }    
+    this.listOrder.forEach(e => {      
       this.totalPrice = (e.price * e.order_count) + this.totalPrice;
-      // this.totalPrice = this.totalPrice += 
     });
   }
 
-  DeleteAnOrder(order_id) {
-    let i = -1;
-    order.forEach(e => {
-      i++;
-      
-      if(e.order_id == order_id) {
-        if(confirm("Are you ok?")) {
-          order.splice(i, 1)
+  DeleteAnOrder(order_id) {        
+    for(let i = 0; i < this.listOrder.length; i++) {
+      if (this.listOrder[i].id == order_id.id) {
+        if (confirm("Are you ok?")) {
+          this.listOrder.splice(i, 1);
+          console.log(this.listOrder);
+          
+          this.totalPrice = this.totalPrice - (order_id.price * order_id.order_count);
+
+          this.removeAllOrderInLocal();
+          localStorage.setItem('order', JSON.stringify(this.listOrder));
+          break;
         }
       }
-    })
+    }
+  }
+
+  removeAllOrderInLocal() {
+    localStorage.removeItem('order');
   }
 
 }

@@ -18,12 +18,53 @@
                         <div class="box-content">
                             <h3 class="text-center">Register An Account</h3>
                             <br>
-                            <form class="logregform">
+                            <form class="logregform formAuthen" [formGroup]="formRegister"
+                                (ngSubmit)="register(formRegister.value)">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label>Enter your name </label>
+                                            <input type="text" class="form-control" formControlName="username" />
+
+                                            <ul class="list-alert--err text-capitalize list-style-none p-0 text-danger">
+                                                <li *ngIf="username.errors">
+                                                    <span *ngIf="username.errors.required && username.touched">
+                                                        name is requied
+                                                    </span>
+                                                </li>
+
+                                                <li *ngIf="username.errors">
+                                                    <span *ngIf="username.errors.pattern && username.touched">
+                                                        can only contain lowercase characters from a-z or A-X
+                                                    </span>
+                                                </li>
+                                                <li *ngIf="username.errors && username.touched">
+                                                    <span *ngIf="username.value.length < 5">
+                                                        Please enter at least 5 characters
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <label>E-mail Address</label>
-                                            <input type="text" value="" class="form-control">
+                                            <input type="email" class="form-control" formControlName="email">
+                                            <ul class="list-alert--err text-capitalize list-style-none p-0 text-danger">
+                                                <li *ngIf="email.errors && email.touched">
+                                                    <span *ngIf="email.errors.required">
+                                                        Email is requied
+                                                    </span>
+                                                </li>
+                                                <li *ngIf="email.errors">
+                                                    <span *ngIf="email.errors.email && email.touched">
+                                                        Please enter a standard email address, for example:
+                                                        123@gmail.com
+                                                    </span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -32,18 +73,30 @@
                                     <div class="form-group">
                                         <div class="col-md-6">
                                             <label>Password</label>
-                                            <input type="password" value="" class="form-control">
+                                            <input type="password" class="form-control" formControlName="password">
+                                            <ul class="list-alert--err text-capitalize list-style-none p-0 text-danger">
+                                                <li *ngIf="password.errors && password.touched">
+                                                    <span *ngIf="password.errors.required">
+                                                        name is requied
+                                                    </span>
+                                                </li>
+                                                <li *ngIf="password.errors && password.touched">
+                                                    <span *ngIf="password.value.length < 5">
+                                                        Please enter at least 5 characters
+                                                    </span>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <div class="col-md-6">
-                                            <label>Re-enter Password</label>
-                                            <input type="password" value="" class="form-control">
-                                        </div>
+                                       
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="space20"></div>
-                                        <button type="submit" class="btn btn-default pull-right">Register</button>
+                                        <button type="submit" class="btn btn-default pull-right"
+                                            [disabled]="formRegister.status == 'INVALID'">
+                                            Register
+                                        </button>
                                     </div>
                                 </div>
                             </form>
@@ -54,3 +107,19 @@
         </div>
     </div>
 </section>
+
+<div class="modal" id="exampleModalCenter" [class]="succesAlert ? 'show': 'fade'">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Crate accout success</h5>
+            </div>
+            <div class="modal-body">
+                Congratulations on successful account registration
+            </div>
+            <div class="modal-footer">
+                <a  class="btn btn-primary" routerLink="/login">Cancal</a>
+            </div>
+        </div>
+    </div>
+</div>
