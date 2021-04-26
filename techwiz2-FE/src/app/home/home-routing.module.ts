@@ -13,6 +13,7 @@ import { ProfileControllComponent } from './customer/profile-controll/profile-co
 import { EditprofileComponent } from './customer/editprofile/editprofile.component';
 import { PasswordControllComponent } from './customer/password-controll/password-controll.component';
 import { OrdersByCustomerComponent } from './customer/orders-by-customer/orders-by-customer.component';
+import { AuthGuardGuard } from '../_helpers/auth.guard';
 
 const routes: Routes = [
   {
@@ -39,6 +40,7 @@ const routes: Routes = [
       path: 'register', component: RegisterComponent
     },
     {
+      canActivate: [AuthGuardGuard],
       path: 'profile', component: ProfileControllComponent,
       children: [
         {
