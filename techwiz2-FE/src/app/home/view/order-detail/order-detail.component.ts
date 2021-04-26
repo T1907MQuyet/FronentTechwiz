@@ -14,7 +14,7 @@ export class OrderDetailComponent implements OnInit {
   ) { }
 
   listOrder = [];
-  
+
   totalPrice = 0;
   ngOnInit(): void {
     let i = -1;
@@ -25,19 +25,19 @@ export class OrderDetailComponent implements OnInit {
         element.id = i;
         this.listOrder.push(element);
       }
-    }    
-    this.listOrder.forEach(e => {      
+    }
+
+    this.listOrder.forEach(e => {
       this.totalPrice = (e.price * e.order_count) + this.totalPrice;
     });
   }
 
-  DeleteAnOrder(order_id) {        
-    for(let i = 0; i < this.listOrder.length; i++) {
+  DeleteAnOrder(order_id) {
+    for (let i = 0; i < this.listOrder.length; i++) {
       if (this.listOrder[i].id == order_id.id) {
         if (confirm("Are you ok?")) {
           this.listOrder.splice(i, 1);
-          console.log(this.listOrder);
-          
+
           this.totalPrice = this.totalPrice - (order_id.price * order_id.order_count);
 
           this.removeAllOrderInLocal();

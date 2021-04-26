@@ -1,61 +1,97 @@
-<nav class="navbar navbar-fixed-top" style="background: rgb(0 0 0 / 74%)">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" routerLink="home">
+<nav class="navbar navbar-fixed-top" style="">
+  <div class="container">
+    <div class="navbar-header">
+    </div>
+    <div class="desktop-megamenu"style="width: 100%">
+      <div class="nav-bar-mobile">
+        <nav class="nav-bar" role="navigation">
+          <div class="site-nav-dropdown_inner grid__item menubar-section">
+            <div class="menu-tool">
+              <a class="navbar-brand" routerLink="home">
                 <img src="/assets/Home/img/nav-logo.png" alt="nav-logo">
-            </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse d-flex justify-content-end">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a routerLinkActive="active" routerLink="home" class="dropdown-toggle" data-toggle="dropdown"
-                        role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+              </a>
+              <ul class="site-nav">
 
+
+                <li class=" ">
+                  <a href="index.html" class="colomenu" >
+                      <span>
+                        Home
+                      </span>
+                  </a>
                 </li>
-                <li class="dropdown">
-                    <a routerLinkActive="active" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                        aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
-                    <!-- <ul class="dropdown-menu">
-                        <li><a routerLinkActive="active" routerLink="/list-product">List product</a></li>
-                        <li><a routerLinkActive="active" routerLink="/menu_overlay.html">Menu - Overlay</a></li>
-                        <li><a routerLinkActive="active" routerLink="/menu_tile.html">Menu - Tile</a></li>
-                        <li><a routerLinkActive="active" routerLink="/menu_grid.html">Menu - Grid</a></li>
-                        <li><a routerLinkActive="active" routerLink="/menu_all.html">Menu All</a></li>
-                    </ul> -->
+
+                <li class=" ">
+                  <a href="collections.html" class="colomenu">
+                      <span>
+                        Menus
+                      </span>
+                  </a>
                 </li>
-                <li class="dropdown position-unset">
-                    <a routerLinkActive="active" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                        aria-haspopup="true" aria-expanded="false">Shop<span class="caret"></span></a>
-                    <ul class="dropdown-menu row box-category-categoryDetail">
+                <li class=" dropdown  mega-menu ">
+                  <a href="collections/all.html" class="colomenu">
+                      <span>
+                        Shop
+                      </span>
+                  </a>
 
-                        <li class="col-4 d-inline float-left" *ngFor="let category of listCategoryandCateDetail">
-                            <!-- Menu level 2 -->
-                            <span class="category--name">
-                                {{ category.categoryName }}
-                            </span>
+                  <div class="site-nav-dropdown">
+                    <div class="container   style_2">
+                      <div class="col-1 parent-mega-menu">
 
-                            <ul class="dropdown p-0">
+                        <div class="inner col-xs-12 col-sm-4"*ngFor="let category of listCategoryandCateDetail">
+                          <!-- Menu level 2 -->
+                          <a href="collections/special.html" class=" ">
+                            {{ category.categoryName }}
 
-                                <!-- Menu level 3 -->
-                                <li *ngFor="let categoryDetail of category.categoryDetail">
-                                    <a href="/category/category-detail/id/{{ categoryDetail.cate_detail_id }}">
-                                        {{ categoryDetail.cate_detail_name }}
-                                    </a>
-                                </li>
-                            </ul>
+                          </a>
 
-                        </li>
-                    </ul>
+                          <ul class="dropdown">
+                            <!-- Menu level 3 -->
+                            <li *ngFor="let categoryDetail of category.categoryDetail">
+                              <a href="/category/category-detail/id/{{ categoryDetail.cate_detail_id }}">
+                                {{ categoryDetail.cate_detail_name }}
+                              </a>
+                            </li>
+
+                            <!-- Menu level 3 -->
+                            <!--<li>
+                              <a href="products/prawn-rice.html">
+                                Flat White
+                              </a>
+                            </li>-->
+                          </ul>
+
+                        </div>
+
+                      </div>
+                      <div class="col-2">
+
+                        <div class="col-left col-sm-6">
+                          <a href="#" title="">
+                            <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-1_2000x0380.jpg?v=1533295368"
+                                 alt=""/>
+                          </a>
+                          <a href="#" title="">
+                            <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-2_2000xc380.jpg?v=1533295376"
+                                 alt=""/>
+                          </a>
+                        </div>
 
 
+                        <div class="col-right col-sm-6">
+                          <a href="#" title="">
+                            <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-3_2000xe5de.jpg?v=1533295383"
+                                 alt=""/>
+                          </a>
+                        </div>
 
+
+                      </div>
+
+
+                    </div>
+                  </div>
                 </li>
                 <li><a routerLinkActive="active" routerLink="/">Contact</a></li>
                
@@ -67,12 +103,85 @@
                         Login
                     </a>
                 </li>
-                <li class="dropdown"><a class="css-pointer dropdown-toggle d-inline" routerLinkActive="active" routerLink="/register">
-                        Register
-                    </a>
-                </li>
-            </ul>
-        </div>
 
+                <li class="  dropdown">
+                  <a class="menu__moblie" href="pages/about-page.html" class="colomenu">
+                      <span>
+                        Page
+                      </span>
+                  </a>
+
+                  <ul class="site-nav-dropdown">
+                    <li>
+                      <a href="pages/contact-us.html" class="">
+                          <span>
+                            Contact Us
+                          </span>
+
+                      </a>
+                      <ul class="site-nav-dropdown">
+
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="blogs/news.html" class="">
+                          <span>
+                            Blog
+                          </span>
+                      </a>
+                      <ul class="site-nav-dropdown">
+
+                      </ul>
+                    </li>
+
+                  </ul>
+
+
+                </li>
+                <li class="  dropdown">
+                  <a class="menu__moblie" href="#" class="colomenu">
+                      <span style="">
+                        <i class="icon-user icons"style="color: gold"></i>
+                      </span>
+                  </a>
+
+                  <ul class="site-nav-dropdown">
+                    <li>
+                      <a href="#" class="">
+                          <span>
+                            Profile
+                          </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="">
+                          <span>
+                            Login
+                          </span>
+
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="">
+                          <span>
+                            Register
+                          </span>
+                      </a>
+                    </li>
+
+                  </ul>
+
+
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
     </div>
+  </div>
+
 </nav>

@@ -16,6 +16,9 @@ import { OrderDetailComponent } from './view/order-detail/order-detail.component
 import { CheckoutComponent } from './view/checkout/checkout.component';
 import { LoginComponent } from './authen/login/login.component';
 import { RegisterComponent } from './authen/register/register.component';
+import { ProfileControllComponent } from './customer/profile-controll/profile-controll.component';
+import { PasswordControllComponent } from './customer/password-controll/password-controll.component';
+import { OrdersByCustomerComponent } from './customer/orders-by-customer/orders-by-customer.component';
 
 
 @NgModule({
@@ -29,7 +32,10 @@ import { RegisterComponent } from './authen/register/register.component';
     OrderDetailComponent,
     CheckoutComponent,
     LoginComponent,
-    RegisterComponent],
+    RegisterComponent,
+    ProfileControllComponent,
+    PasswordControllComponent,
+    OrdersByCustomerComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

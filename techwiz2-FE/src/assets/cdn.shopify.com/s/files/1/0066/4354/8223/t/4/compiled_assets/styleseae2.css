@@ -1,0 +1,34 @@
+
+
+
+
+
+.about-us .icon-one::before{background: {{settings.aboutvedafive_2_txtcolor}};border-radius: 5px;content: ""; height: 50px;left: 10px; position: absolute;top: 12px;transform: rotate(45deg);-webkit-transform: rotate(45deg); width: 50px; z-index: 0; box-shadow:5px 0 0 0 {{settings.aboutvedafive_2_iconcolor}};}
+.about-us .section-two { background:{{settings.aboutvedafive_2_sectionbg}};}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

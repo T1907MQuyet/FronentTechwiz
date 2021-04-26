@@ -4,7 +4,7 @@
         <router-outlet></router-outlet>
         <app-footer></app-footer>
 
-        <a class="btn-cart-float" href="/order">
+        <a class="btn-cart-float" [href]="isLogin ? '/order' : '/login'">
             <i class="fa fa-shopping-cart fsc pull-left"></i>
         </a>
     </div>

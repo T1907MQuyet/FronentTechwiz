@@ -54,10 +54,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-
-          // if (data.data.user_info.user_type_name == 'Admin') {
-          //   this.router.navigate(["admin"]);
-          // }
+          window.location.assign("/")
           // else {
           //   this.router.navigate([this.returnUrl]);
           // }
