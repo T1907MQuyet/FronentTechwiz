@@ -1,1 +1,19 @@
-<p>profile-controll works!</p>
+<section class="page_header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 class="text-uppercase">Profile</h2>
+                <ul class="d-flex list-style-none box-nav">
+                    <li><a routerLink="edit">Profile Edit</a></li>
+                    <li><a routerLink="change-pass">Change Password</a></li>
+                    <li><a routerLink="list-order">List Order</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container box-action d-flex my-4">
+    <div class="col-md-10 col-sm-12 mx-auto">
+        <router-outlet></router-outlet>
+    </div>
+</div>

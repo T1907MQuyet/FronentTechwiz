@@ -34,15 +34,31 @@ h3 {
     padding: 0;
 }
 .m-0 {
-    margin: 0
+    margin: 0;
 }
-
+.mt-4 {
+    margin-top: 1.5rem;
+}
+.my-4 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
 .text-dark {
-    color: #000
+    color: #000;
+}
+.text-underline {
+    text-decoration: underline;
+}
+.font-weight-bold {
+    font-weight: bold;
 }
 
-.font-weight-bold {
-   font-weight: bold;
+.align-items-center {
+    align-items: center;
 }
 .justify-content-center {
     justify-content: center;
@@ -51,7 +67,9 @@ h3 {
 .justify-content-end {
     justify-content: flex-end;
 }
-
+.justify-content-between {
+    justify-content: space-between;
+}
 .position-unset {
     position: unset !important;
 }
@@ -116,4 +134,10 @@ h3 {
 
 .formAuthen button[type="submit"] {
     cursor: pointer;
+}
+
+@media (max-width: 1140px) {
+    .col-sm-12 {
+        width: 100%;
+    }
 }

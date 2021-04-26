@@ -25,8 +25,16 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
+  getUserById(id) {
+    return this.http.get(environment.apiUrl + 'customer/' + id)
+  }
+
   register(val) {
     return this.http.post(environment.apiUrl + 'customer/register', val)
+  }
+
+  upgradeInfor(val) {
+    return this.http.post(environment.apiUrl + 'customer/updateCustomer', val)
   }
 
   login(username: string, password: string) {

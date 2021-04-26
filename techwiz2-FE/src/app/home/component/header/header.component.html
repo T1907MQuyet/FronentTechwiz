@@ -89,33 +89,33 @@
                   </li>
                 </ul>
                 <ul class="site-nav m-0">
-                  <li class="dropdown">
+                  <li class="dropdown" *ngIf="isLogin == false">
                     <a class="css-pointer dropdown-toggle d-inline colomenu not" routerLinkActive="active" routerLink="/login">
                       Login
                     </a>
                   </li>
-                  <li class="dropdown">
+                  <li class="dropdown" *ngIf="isLogin == false">
                     <a class="css-pointer dropdown-toggle d-inline colomenu not" routerLinkActive="active" routerLink="/register">
                       register
                     </a>
                   </li>
-                  <li class="dropdown">
-                    <a class="menu__moblie" href="#" class="colomenu">
+                  <li class="dropdown" *ngIf="isLogin == true">
+                    <a class="menu__moblie" class="colomenu">
                       <span>
-                        <img src="assets/Home/Trend-Avatar-Facebook%20(1).jpg" style="width: 30px;height: 30px">
+                        <img [src]="'https://res.cloudinary.com/alpha1111/image/upload/v1619098856/' + userInfor.avatar" style="width: 30px;height: 30px">
                       </span>
                     </a>
                 
                     <ul class="site-nav-dropdown">
                       <li>
-                        <a routerLink="profile" class="">
+                        <a routerLink="/profile" class="">
                           <span>
                             Profile
                           </span>
                         </a>
                       </li>
                       <li>
-                        <a href="#" class="">
+                        <a (click)="logout()">
                           <span>
                             Logout
                           </span>

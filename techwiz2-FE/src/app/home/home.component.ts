@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../_service/Authentication.Service';
 
 @Component({
@@ -9,16 +10,19 @@ import { AuthenticationService } from '../_service/Authentication.Service';
 export class HomeComponent implements OnInit {
 
   constructor(
-    private authen: AuthenticationService
+    private authentication: AuthenticationService,
   ) { }
   isLogin = false;
 
   ngOnInit(): void {
-    if (this.authen.currentUserValue != null) {
+    if (this.authentication.currentUserValue != null) {
       this.isLogin = true;
     }
     else {
       this.isLogin = false;
     }
   }
+
+
+
 }

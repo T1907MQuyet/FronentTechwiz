@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/_service/home/category/category.service';
 import { order } from 'src/app/_model/order';
 import { OrderService } from 'src/app/_service/home/order/order.service';
+import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/_service/Authentication.Service';
+import { User } from 'src/app/_model/User';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -12,18 +16,31 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private category: CategoryService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private authentication: AuthenticationService,
+    private router: Router
   ) { }
 
   ListCategoryActive;
   ListCategoryDetailActive = [];
+  isLogin = false;
 
-  listCategoryandCateDetail = [
+  listCategoryandCateDetail = [];
 
-
-  ]
+  userInfor;
   ngOnInit(): void {
     this.getAllcategoryActive();
+
+    let idUser = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser'))).value.customer_id;
+    
+    this.authentication.getUserById(idUser).subscribe(
+      data => {
+        this.isLogin = true;
+        let contain = data;
+        
+        this.userInfor = contain; console.log(this.userInfor);
+      }
+    )
   }
 
   getAllcategoryActive() {
@@ -52,4 +69,9 @@ export class HeaderComponent implements OnInit {
   }
 
 
+  logout() {
+    this.authentication.logout();
+    this.isLogin = false;
+    this.router.navigate(['/login']);
+  }
 }

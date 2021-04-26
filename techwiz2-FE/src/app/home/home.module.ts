@@ -19,6 +19,7 @@ import { RegisterComponent } from './authen/register/register.component';
 import { ProfileControllComponent } from './customer/profile-controll/profile-controll.component';
 import { PasswordControllComponent } from './customer/password-controll/password-controll.component';
 import { OrdersByCustomerComponent } from './customer/orders-by-customer/orders-by-customer.component';
+import { EditprofileComponent } from './customer/editprofile/editprofile.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { OrdersByCustomerComponent } from './customer/orders-by-customer/orders-
     RegisterComponent,
     ProfileControllComponent,
     PasswordControllComponent,
-    OrdersByCustomerComponent],
+    OrdersByCustomerComponent,
+    EditprofileComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

@@ -21,10 +21,10 @@
 /*================ The following are dependencies of csswizardry grid ================*/
 /*================ Color variables ================*/
 .rev_slider_wrapper {
-  font-family: Sofia; }
+  font-family: josefin sans, sans-serif; }
 
 .flexslider {
-  font-family: Sofia; }
+  font-family: josefin sans, sans-serif; }
 
 /*================ Global | Normalize ================*/
 *, input, :before, :after {
@@ -129,7 +129,7 @@ select {
   font-weight: 300;
   font-size: 14px;
   line-height: 1.7;
-  font-family: Poppins;
+  font-family: josefin sans, sans-serif;
   color: black;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%; }
@@ -153,7 +153,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 /*================ Use em() Sass function to declare font-size ================*/
 h1, .h1 {
   font-size: 48px;
-  font-family: Cinzel;
+  font-family: josefin sans, sans-serif;
   font-weight: 400; }
   @media screen and (max-width: 1599px) {
     h1, .h1 {
@@ -164,7 +164,7 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: 40px;
-  font-family: Cinzel;
+  font-family: josefin sans, sans-serif;
   font-weight: 400; }
   @media screen and (max-width: 1599px) {
     h2, .h2 {
@@ -175,7 +175,7 @@ h2, .h2 {
 
 h3, .h3 {
   font-size: 30px;
-  font-family: Cinzel;
+  font-family: josefin sans, sans-serif;
   font-weight: 400; }
   @media screen and (max-width: 1599px) {
     h3, .h3 {
@@ -2059,14 +2059,14 @@ label.error {
       text-align: center; } }
 
 .slide-offer-text {
-  font-family: Sofia;
+  font-family: josefin sans, sans-serif;
   display: inline-block; }
   @media screen and (max-width: 1199px) {
     .slide-offer-text {
       font-size: 16px !important; } }
 
 .slide-text {
-  font-family: Sofia;
+  font-family: josefin sans, sans-serif;
   padding: 0;
   margin: 0 auto 35px;
   clear: both;
@@ -4904,7 +4904,7 @@ input[type="search"].sb-search-input {
 
 /* Title */
 .border-title h2, .border-title .h2 {
-  font-family: Cinzel;
+  font-family: josefin sans, sans-serif;
   margin: 0 0 5px; }
 
 .border-title h6, .border-title .h6 {
@@ -4977,7 +4977,7 @@ input[type="search"].sb-search-input {
   position: absolute;
   top: 0;
   padding: 30px;
-  font-family: Poppins; }
+  font-family: josefin sans, sans-serif; }
   @media screen and (max-width: 967px) {
     .full-width-grid-banner .img-hover-effect .featured-content h4, .full-width-grid-banner .img-hover-effect .featured-content .h4 {
       font-size: 16px; } }
@@ -5673,7 +5673,7 @@ ul li.grid__item.item-row, #recently-viewed-products-grid .grid__item {
 /* Grid banner type 10 */
 .grid-banner-type-10 .featured-content h6, .grid-banner-type-10 .featured-content .h6 {
   text-transform: inherit;
-  font-family: Poppins;
+  font-family: josefin sans, sans-serif;
   font-size: 20px;
   font-weight: normal; }
   @media screen and (max-width: 1199px) {
@@ -5965,7 +5965,7 @@ ul li.grid__item.item-row, #recently-viewed-products-grid .grid__item {
 
 .testimonial-type-20 .testimonial-detail blockquote::before {
   color: #a80b04;
-  font-family: Cinzel;
+  font-family: josefin sans, sans-serif;
   top: 0px;
   left: 5px;
   line-height: normal;
@@ -6157,7 +6157,7 @@ ul li.grid__item.item-row, #recently-viewed-products-grid .grid__item {
 .grid-banner-type-14 .featured-content h6, .grid-banner-type-14 .featured-content .h6 {
   margin: 0;
   text-transform: inherit;
-  font-family: Poppins;
+  font-family: josefin sans, sans-serif;
   font-weight: normal; }
   @media screen and (max-width: 1199px) {
     .grid-banner-type-14 .featured-content h6, .grid-banner-type-14 .featured-content .h6 {
@@ -6425,7 +6425,7 @@ ul li.grid__item.item-row, #recently-viewed-products-grid .grid__item {
   letter-spacing: 1px;
   font-size: 16px;
   margin: 0;
-  font-family: Poppins; }
+  font-family: josefin sans, sans-serif; }
 
 .product-tab-type-2 .featured-content h2, .product-tab-type-2 .featured-content .h2 {
   font-size: 40px;
@@ -6877,7 +6877,7 @@ ul li.grid__item.item-row, #recently-viewed-products-grid .grid__item {
   position: relative;
   font-size: 22px;
   margin-bottom: 20px;
-  font-family: Poppins; }
+  font-family: josefin sans, sans-serif; }
   @media screen and (max-width: 967px) {
     .support-block-type-4 .support_section h6, .support-block-type-4 .support_section .h6 {
       font-size: 14px; } }
@@ -7766,7 +7766,7 @@ blockquote:before {
   left: -28px;
   position: absolute;
   top: -28px;
-  font-family: Poppins;
+  font-family: josefin sans, sans-serif;
   width: 70px;
   text-align: center; }
 
@@ -8337,7 +8337,7 @@ blockquote:before {
   margin-bottom: 12px;
   font-size: 16px;
   font-weight: normal;
-  font-family: Poppins; }
+  font-family: josefin sans, sans-serif; }
 
 .product_sidebar ul.support_block .support_icon {
   float: left;
@@ -10310,7 +10310,7 @@ ul.dt-sc-tabs-vertical-frame li a {
   -moz-border-radius: 5px 0px 0px 5px;
   margin: 0px;
   padding: 12px;
-  font-family: Cinzel; }
+  font-family: josefin sans, sans-serif; }
 
 ul.dt-sc-tabs-vertical-frame li.current:before {
   background: #a80b04; }
@@ -11952,7 +11952,7 @@ ul.dt-sc-tabs-vertical-frame li:before {
   width: 100%;
   margin: auto;
   color: #000;
-  font-family: Poppins; }
+  font-family: josefin sans, sans-serif; }
 
 #email-modal .window-content .title span:before {
   position: absolute;
@@ -14508,7 +14508,7 @@ li.dropdown:last-child .site-nav-dropdown ul {
 
 /*.zoomWrapper > div {  width: 64px !important; height: 64px !important; background-color: #fff!important; left: 50% !important; margin: -32px 0 0 -32px !important; top: 50% !important; -webkit-border-radius: 4px;-moz-border-radius: 4px; border-radius: 4px;z-index: 99!important;}*/
 #email-modal .window-window .window-content .title b {
-  font-family: Cinzel; }
+  font-family: josefin sans, sans-serif; }
 
 .list-collection-products .grid__item:hover a.btn, .list-collection-products .grid__item:hover a.btn--secondary, .list-collection-products .grid__item:hover a.btn--tertiary {
   background-color: #ffc600;
@@ -15011,7 +15011,7 @@ blockquote {
   left: -28px;
   position: absolute;
   top: -28px;
-  font-family: Poppins;
+  font-family: josefin sans, sans-serif;
   width: 70px;
   text-align: center; }
 
@@ -16459,7 +16459,7 @@ q::before {
   z-index: 1; }
 
 .about-us .icon-block h4, .about-us .icon-block .h4 {
-  font-family: Poppins;
+  font-family: josefin sans, sans-serif;
   font-size: 18px; }
 
 .about-us .icon-block p {
@@ -16582,7 +16582,7 @@ q::before {
   margin-bottom: 5px; }
 
 .about-us .testimonial-author h6, .about-us .testimonial-author .h6 {
-  font-family: Poppins; }
+  font-family: josefin sans, sans-serif; }
 
 .about-us .owl-buttons .owl-prev, .vedabout-four .owl-buttons .owl-next {
   border-radius: 50%;

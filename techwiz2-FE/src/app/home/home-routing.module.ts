@@ -9,6 +9,10 @@ import { ProductDetailComponent } from './view/product/product-detail/product-de
 import { OrderDetailComponent } from './view/order-detail/order-detail.component';
 import { LoginComponent } from './authen/login/login.component';
 import { RegisterComponent } from './authen/register/register.component';
+import { ProfileControllComponent } from './customer/profile-controll/profile-controll.component';
+import { EditprofileComponent } from './customer/editprofile/editprofile.component';
+import { PasswordControllComponent } from './customer/password-controll/password-controll.component';
+import { OrdersByCustomerComponent } from './customer/orders-by-customer/orders-by-customer.component';
 
 const routes: Routes = [
   {
@@ -34,6 +38,22 @@ const routes: Routes = [
     {
       path: 'register', component: RegisterComponent
     },
+    {
+      path: 'profile', component: ProfileControllComponent,
+      children: [
+        {
+          path: 'edit', component: EditprofileComponent
+        },
+        {
+          path: 'list-order', component: OrdersByCustomerComponent
+        },
+        {
+          path: 'change-pass', component: PasswordControllComponent
+        }
+      ]
+    },
+
+
     {
       path: '**', component: HomePageComponent,
     }

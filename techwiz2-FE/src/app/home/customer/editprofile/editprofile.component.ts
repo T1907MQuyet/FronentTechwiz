@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { User } from 'src/app/_model/User';
 import { AuthenticationService } from 'src/app/_service/Authentication.Service';
 import { OrderService } from 'src/app/_service/home/order/order.service';
 
 @Component({
-  selector: 'app-profile-controll',
-  templateUrl: './profile-controll.component.html',
-  styleUrls: ['./profile-controll.component.css']
+  selector: 'app-editprofile',
+  templateUrl: './editprofile.component.html',
+  styleUrls: ['./editprofile.component.css']
 })
-export class ProfileControllComponent implements OnInit {
+export class EditprofileComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,7 +43,7 @@ export class ProfileControllComponent implements OnInit {
 
     this.formGroupFucntion();
   }
-  formUserUpgrade:FormGroup;
+  formUserUpgrade: FormGroup;
   formGroupFucntion() {
     this.formUserUpgrade = this.formBuilder.group({
       customer_id: [''],
@@ -58,21 +57,19 @@ export class ProfileControllComponent implements OnInit {
 
   upgradeInfor(val) {
     console.log(val);
-    
+
     let data = {
       "customer_id": val.customer_id,
       "address": val.address,
       "phonenumber": val.phonenumber
     }
-    console.log(data);
 
     this.authentication.upgradeInfor(data).subscribe(
       data => {
-        console.log(data);
-        
+        window.location.reload();
       }
     )
-    
+
   }
 
 
@@ -87,9 +84,5 @@ export class ProfileControllComponent implements OnInit {
     this.formUserUpgrade.controls.email.patchValue(this.userInfor.email);
   }
 
-  logout() {
-    this.authentication.logout();
-    this.isLogin = false;
-    this.router.navigate(['/login']);
-  }
+
 }
