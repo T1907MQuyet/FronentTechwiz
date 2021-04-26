@@ -34,29 +34,41 @@ export class RegisterComponent implements OnInit {
   // listDataEmail = [];
   error;
   succesAlert = false;
+  clickDis = false;
   register(val) {
-    let data = {
-      "username": val.username,
-      "email": val.email,
-      "password": val.password
-    }
-
-    this.authenticationService.register(data).subscribe(
-      data => {
-        this.error = '';
-        this.succesAlert = true;
-        // setTimeout(() => {
-        //   this.router.navigate(["/login"]);
-        // }, 1000);
-      },
-
-      err => {
-        this.error = err.error.Errors;
-        this.succesAlert = false;
+    if (this.formRegister.status != 'INVALID') {
+      let data = {
+        "username": val.username,
+        "email": val.email,
+        "password": val.password
       }
 
-    )
-    this.succesAlert = false;
+      this.authenticationService.register(data).subscribe(
+        data => {
+          this.error = '';
+          this.succesAlert = true;
+          // setTimeout(() => {
+          //   this.router.navigate(["/login"]);
+          // }, 1000);
+        },
+
+        err => {
+          this.error = err.error.Errors;
+          this.succesAlert = false;
+        }
+
+      )
+      this.succesAlert = false;
+    
+      this.clickDis = false;
+    }
+    
+    else {
+      this.username.errors.required = true;
+      this.email.errors.requied = true;
+      this.password.errors.required = true;
+      this.clickDis = true;
+    }
   }
 
 }

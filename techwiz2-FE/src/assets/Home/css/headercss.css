@@ -27,9 +27,9 @@
 /* Menu  block */
 
 
-.header-type-4 .menu-tool,.site-nav > li:hover > a:hover,.cbp-spmenu a:active,.site-nav > li.dropdown:hover > a {background: #ffffff;}
+
 .header-type-4 .menu-tool ul li {}
-.header-type-4 .menu-tool ul li a,.site-nav > li.dropdown:hover > a,.cbp-spmenu a:active {color:#000000;}
+.header-type-4 .menu-tool ul li a,.site-nav > li.dropdown:hover > a,.cbp-spmenu a:active {color:#fff;}
 .header-type-4 .menu-tool ul li a:hover,.header-type-4 .menu-tool .site-nav > li > a.current:hover,.cbp-spmenu .site-nav>li>a:hover  {color:#a80b04;}
 .site-nav > li.dropdown:hover > p.toogleClick:before  {border-top-color:#a80b04;}
 .site-nav > li.dropdown:hover > p.toogleClick.mobile-toggle-open:before { border-bottom-color:#a80b04; }

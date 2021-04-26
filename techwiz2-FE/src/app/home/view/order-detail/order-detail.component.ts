@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { order } from 'src/app/_model/order';
+import { User } from 'src/app/_model/User';
+import { AuthenticationService } from 'src/app/_service/Authentication.Service';
 import { OrderService } from 'src/app/_service/home/order/order.service';
 
 @Component({
@@ -11,12 +14,23 @@ export class OrderDetailComponent implements OnInit {
 
   constructor(
     private orderService: OrderService,
+    private authentication: AuthenticationService
   ) { }
 
   listOrder = [];
-
+  isLogin = false;
   totalPrice = 0;
   ngOnInit(): void {
+    // Check login true false
+    let checkLogin = this.authentication.currentUserValue;
+    if (checkLogin) {
+      this.isLogin = true;
+    }
+    else {
+      this.isLogin = false;
+    }
+
+    // loop order in localstore
     let i = -1;
     for (const key in this.orderService.listOrderInLocal) {
       i++;

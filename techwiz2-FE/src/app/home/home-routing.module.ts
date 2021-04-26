@@ -14,6 +14,7 @@ import { EditprofileComponent } from './customer/editprofile/editprofile.compone
 import { PasswordControllComponent } from './customer/password-controll/password-controll.component';
 import { OrdersByCustomerComponent } from './customer/orders-by-customer/orders-by-customer.component';
 import { AuthGuardGuard } from '../_helpers/auth.guard';
+import { CheckoutComponent } from './view/checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
     {
       path: 'order', component: OrderDetailComponent
     },
+      {
+        canActivate: [AuthGuardGuard],
+        path: 'checkout', component: CheckoutComponent
+      },
     {
       path: 'login', component: LoginComponent
     },
@@ -43,6 +48,9 @@ const routes: Routes = [
       canActivate: [AuthGuardGuard],
       path: 'profile', component: ProfileControllComponent,
       children: [
+        {
+          path: '', component: EditprofileComponent
+        },
         {
           path: 'edit', component: EditprofileComponent
         },

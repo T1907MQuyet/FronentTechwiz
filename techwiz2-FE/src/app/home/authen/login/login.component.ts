@@ -13,9 +13,9 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   loading = false;
-  submitted = false;
+  clickDis = false;
   returnUrl: string;
-  error = '';
+  alert_err = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,33 +36,31 @@ export class LoginComponent implements OnInit {
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
-
+  get username() { return this.loginForm.get('username'); }
+  get password() { return this.loginForm.get('password'); }
   // convenience getter for easy access to form fields
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.loginForm.invalid) {
-      return;
+    if (this.loginForm.status != 'INVALID') {
+      this.authenticationService.login(this.f.username.value, this.f.password.value)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.alert_err = '';
+            window.location.assign("/");
+          },
+          error => {
+            this.alert_err = error.error.message;
+          });
+      this.clickDis = false;
+    }
+    else {
+      this.username.errors.required = true;
+      this.password.errors.required = true;
+      this.clickDis = true;
     }
 
-    this.loading = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          console.log(data);
-          window.location.assign("/")
-          // else {
-          //   this.router.navigate([this.returnUrl]);
-          // }
-        },
-        error => {
-          this.error = "No";
-          this.loading = false;
-        });
   }
 
 }

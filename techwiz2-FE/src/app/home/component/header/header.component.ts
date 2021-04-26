@@ -30,17 +30,20 @@ export class HeaderComponent implements OnInit {
   userInfor;
   ngOnInit(): void {
     this.getAllcategoryActive();
-
-    let idUser = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser'))).value.customer_id;
+    let checkLogin = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser'))).value;
     
-    this.authentication.getUserById(idUser).subscribe(
-      data => {
-        this.isLogin = true;
-        let contain = data;
-        
-        this.userInfor = contain; console.log(this.userInfor);
-      }
-    )
+    if (checkLogin) {
+      let idUser = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser'))).value.customer_id;
+      this.authentication.getUserById(idUser).subscribe(
+        data => {
+          this.isLogin = true;
+          let contain = data;
+
+          this.userInfor = contain;
+        }
+      )
+    }
+    
   }
 
   getAllcategoryActive() {

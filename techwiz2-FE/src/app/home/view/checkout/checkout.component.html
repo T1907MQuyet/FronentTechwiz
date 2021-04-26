@@ -1,1 +1,166 @@
-<p>checkout works!</p>
+<section class="page_header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 class="text-uppercase">Checkout</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container box-action d-flex my-4">
+    <div class="col-md-12 col-sm-12 mx-auto">
+        <form class="needs-validation" [formGroup]="formCheckout" (ngSubmit)="createOrder(formCheckout.value)">
+            <div class="row g-0 pb-5 mb-xl-3 d-flex">
+                <!-- Delivery details-->
+                <div class="col-12 col-md-8 mb-3 p-4">
+                    <div class="row gx-4 gy-3">
+                        <div class="col-sm-6">
+                            <label class="form-label" for="co-fn">Full name <span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" id="co-fn" formControlName="fullname">
+                            <ul class="list-alert--err text-capitalize list-style-none p-0 text-danger">
+                                <li *ngIf="formCheckoutF.fullname.errors">
+                                    <!-- <span
+                                        *ngIf="formCheckoutF.fullname.errors.required && formCheckoutF.fullname.touched">
+                                        name is requied
+                                    </span> -->
+                                    <span *ngIf="formCheckoutF.fullname.errors.required && clickisDis">
+                                        name is requied
+                                    </span>
+                                </li>
+
+                                <li *ngIf="formCheckoutF.fullname.errors">
+                                    <span
+                                        *ngIf="formCheckoutF.fullname.errors.pattern && formCheckoutF.fullname.touched">
+                                        can only contain lowercase characters from a-z or A-X
+                                    </span>
+                                </li>
+                                <li *ngIf="formCheckoutF.fullname.errors && formCheckoutF.fullname.touched">
+                                    <span *ngIf="formCheckoutF.fullname.value.length < 5">
+                                        Please enter at least 5 characters
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label" for="co-fn">Email address</label>
+                            <input class="form-control bg-image-none" type="email" id="co-email"
+                                formControlName="email">
+                            <ul class="list-alert--err text-capitalize list-style-none p-0 text-danger">
+                                <li *ngIf="formCheckoutF.email.errors">
+                                    <!-- <span *ngIf="formCheckoutF.email.errors.required && formCheckoutF.email.touched">
+                                        Email is requied
+                                    </span> -->
+                                    <span *ngIf="formCheckoutF.email.errors.required && clickisDis">
+                                        Email is requied
+                                    </span>
+                                </li>
+                                <li *ngIf="formCheckoutF.email.errors">
+                                    <span *ngIf="formCheckoutF.email.errors.email && formCheckoutF.email.touched">
+                                        Please enter a standard email address, for example:
+                                        123@gmail.com
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label" for="co-address">Address <span
+                                    class="text-danger">*</span></label>
+                            <input class="form-control" type="text" id="co-address" formControlName="address">
+                            <ul class="list-alert--err text-capitalize list-style-none p-0 text-danger">
+                                <li *ngIf="formCheckoutF.address.errors">
+                                    <!-- <span
+                                        *ngIf="formCheckoutF.address.errors.required && formCheckoutF.address.touched">
+                                        name is requied
+                                    </span> -->
+                                    <span *ngIf="formCheckoutF.address.errors.required && clickisDis">
+                                        name is requied
+                                    </span>
+                                </li>
+                                <li *ngIf="formCheckoutF.address.errors && formCheckoutF.address.touched">
+                                    <span *ngIf="formCheckoutF.address.value.length < 5">
+                                        Please enter at least 5 characters
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label" for="co-address">Payment <span
+                                    class="text-danger">*</span></label>
+                            <select formControlName="payment" class="form-control">
+                                <option value="CashOnDelivery">Cash on Delivery</option>
+                                <option value="Paypal">Paypal</option>
+                            </select>
+
+                            <div *ngIf="formCheckoutF.payment.errors" class="text-danger">
+                                <!-- <span *ngIf="formCheckoutF.payment.errors.required && formCheckoutF.payment.touched">
+                                    payment is requied
+                                </span> -->
+                                <span *ngIf="formCheckoutF.payment.errors.required && clickisDis">
+                                    payment is requied
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="form-label" for="co-note">Order note</label>
+                            <textarea class="form-control bg-image-none" id="co-note" rows="6" formControlName="note"
+                                placeholder="Please write here any additional information..."></textarea>
+                        </div>
+                    </div>
+                    <div class="rounded-3 border p-4 my-3">
+                        <div class="d-flex">
+                            <button class="btn btn-default" type="submit">Pay Now</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Order summary + payment-->
+                <div class="col-12 col-md-4 offset-xl-1 mb-2 p-4 position-sticky top-0">
+                    <div class="bg-light rounded-3 py-5 px-4 px-xxl-5">
+                        <h2 class="h5 pb-3 text-left">Your order</h2>
+                        <div class="overflow-auto list-product">
+                            <div class="col-12" *ngFor="let product of listOrder">
+                                <div class="d-flex p-3 pl-0">
+                                    <div class="product-img-order">
+                                        <!-- <img [src]="'https://res.cloudinary.com/alpha1111/image/upload/v1619098856/zshaogd4tuxxuv48admb.jpg'"
+                                            [alt]="product.image" width="80px" /> -->
+                                        <img [src]="product.image" [alt]="product.image" width="80px" />
+                                    </div>
+                                    <div class="d-flex flex-column justify-content-between w-100 product-infor">
+                                        <a routerLink="/product-detail/id/{{ product.product_id }}">{{
+                                            product.product_name }}</a>
+
+                                        <div class="product-price d-block ssp">{{ product.price | currency:'$' }}
+                                            <span>{{
+                                                product.discount |
+                                                currency:'$' }}
+                                            </span> <sub>x {{ product.order_count }}</sub>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 mt-4">
+                            <h2 class="h5 sfont-weight-bold text-left">Total: {{ this.totalPrice| currency:'$' }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal col-12 col-sm-6 mx-auto" id="exampleModalCenter" [class]="succesAlert ? 'show': 'fade'">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Crate accout success</h5>
+            </div>
+            <div class="modal-body">
+                Congratulations on successful account registration
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-primary" routerLink="/list-product">Cancal</a>
+            </div>
+        </div>
+    </div>
+</div>

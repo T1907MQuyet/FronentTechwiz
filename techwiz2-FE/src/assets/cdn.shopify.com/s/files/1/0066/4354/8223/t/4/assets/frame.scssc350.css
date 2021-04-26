@@ -1385,11 +1385,10 @@ th, td {
     float: none; } }
 /*================ Partials | Links and Buttons ================*/
 a, .text-link {
-  color: black;
+  color: #f9c56a;
   text-decoration: none;
   background: transparent; }
-  a:hover, a:focus, .text-link:hover, .text-link:focus {
-    color: #a80b04; }
+ 
 
 button {
   overflow: visible; }

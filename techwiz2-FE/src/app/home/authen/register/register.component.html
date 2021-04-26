@@ -28,7 +28,7 @@
 
                                             <ul class="list-alert--err text-capitalize list-style-none p-0 text-danger">
                                                 <li *ngIf="username.errors">
-                                                    <span *ngIf="username.errors.required && username.touched">
+                                                    <span *ngIf="username.errors.required && clickDis">
                                                         name is requied
                                                     </span>
                                                 </li>
@@ -53,8 +53,8 @@
                                             <label>E-mail Address</label>
                                             <input type="email" class="form-control" formControlName="email">
                                             <ul class="list-alert--err text-capitalize list-style-none p-0 text-danger">
-                                                <li *ngIf="email.errors && email.touched">
-                                                    <span *ngIf="email.errors.required">
+                                                <li *ngIf="email.errors">
+                                                    <span *ngIf="email.errors.required && clickDis">
                                                         Email is requied
                                                     </span>
                                                 </li>
@@ -75,8 +75,8 @@
                                             <label>Password</label>
                                             <input type="password" class="form-control" formControlName="password">
                                             <ul class="list-alert--err text-capitalize list-style-none p-0 text-danger">
-                                                <li *ngIf="password.errors && password.touched">
-                                                    <span *ngIf="password.errors.required">
+                                                <li *ngIf="password.errors">
+                                                    <span *ngIf="password.errors.required && clickDis">
                                                         name is requied
                                                     </span>
                                                 </li>
@@ -94,7 +94,7 @@
                                     <div class="col-md-12">
                                         <div class="space20"></div>
                                         <button type="submit" class="btn btn-default pull-right"
-                                            [disabled]="formRegister.status == 'INVALID'">
+                                            >
                                             Register
                                         </button>
                                     </div>

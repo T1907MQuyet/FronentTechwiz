@@ -10,33 +10,29 @@
               <a class="navbar-brand" routerLink="home">
                 <img src="/assets/Home/img/nav-logo.png" alt="nav-logo">
               </a>
-              <div class="d-flex justify-content-end">
+              <div class="d-flex justify-content-around">
                 <ul class="site-nav m-0">
                   <li class=" ">
                     <a routerLink="home" class="colomenu">
-                      <span>
-                        Home
-                      </span>
+                      Home
                     </a>
                   </li>
                   <li class=" dropdown  mega-menu ">
                     <a routerLink="list-product" class="colomenu">
-                      <span>
-                        Shop
-                      </span>
+                      Shop
                     </a>
-                
+
                     <div class="site-nav-dropdown">
                       <div class="container style_2">
                         <div class="col-1 parent-mega-menu">
-                
+
                           <div class="inner col-xs-12 col-sm-4" *ngFor="let category of listCategoryandCateDetail">
                             <!-- Menu level 2 -->
                             <span class="text-dark font-weight-bold">
                               {{ category.categoryName }}
-                
+
                             </span>
-                
+
                             <ul class="dropdown">
                               <!-- Menu level 3 -->
                               <li *ngFor="let categoryDetail of category.categoryDetail">
@@ -44,7 +40,7 @@
                                   {{ categoryDetail.cate_detail_name }}
                                 </a>
                               </li>
-                
+
                               <!-- Menu level 3 -->
                               <!--<li>
                                               <a href="products/prawn-rice.html">
@@ -52,35 +48,38 @@
                                               </a>
                                             </li>-->
                             </ul>
-                
+
                           </div>
-                
+
                         </div>
                         <div class="col-2">
-                
+
                           <div class="col-left col-sm-6">
                             <a href="#" title="">
-                              <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-1_2000x0380.jpg?v=1533295368"
+                              <img
+                                src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-1_2000x0380.jpg?v=1533295368"
                                 alt="" />
                             </a>
                             <a href="#" title="">
-                              <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-2_2000xc380.jpg?v=1533295376"
+                              <img
+                                src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-2_2000xc380.jpg?v=1533295376"
                                 alt="" />
                             </a>
                           </div>
-                
-                
+
+
                           <div class="col-right col-sm-6">
                             <a href="#" title="">
-                              <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-3_2000xe5de.jpg?v=1533295383"
+                              <img
+                                src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-3_2000xe5de.jpg?v=1533295383"
                                 alt="" />
                             </a>
                           </div>
-                
-                
+
+
                         </div>
-                
-                
+
+
                       </div>
                     </div>
                   </li>
@@ -90,40 +89,36 @@
                 </ul>
                 <ul class="site-nav m-0">
                   <li class="dropdown" *ngIf="isLogin == false">
-                    <a class="css-pointer dropdown-toggle d-inline colomenu not" routerLinkActive="active" routerLink="/login">
+                    <a class="css-pointer dropdown-toggle d-inline colomenu not" routerLinkActive="active"
+                      routerLink="/login">
                       Login
                     </a>
                   </li>
                   <li class="dropdown" *ngIf="isLogin == false">
-                    <a class="css-pointer dropdown-toggle d-inline colomenu not" routerLinkActive="active" routerLink="/register">
+                    <a class="css-pointer dropdown-toggle d-inline colomenu not" routerLinkActive="active"
+                      routerLink="/register">
                       register
                     </a>
                   </li>
                   <li class="dropdown" *ngIf="isLogin == true">
-                    <a class="menu__moblie" class="colomenu">
-                      <span>
-                        <img [src]="'https://res.cloudinary.com/alpha1111/image/upload/v1619098856/' + userInfor.avatar" style="width: 30px;height: 30px">
-                      </span>
+                    <a class="menu__moblie not colomenu">
+                      <img [src]="userInfor.avatar" [alt]="userInfor.avatar" style="width: 30px;height: 30px">
                     </a>
-                
+
                     <ul class="site-nav-dropdown">
                       <li>
                         <a routerLink="/profile" class="">
-                          <span>
-                            Profile
-                          </span>
+                          Profile
                         </a>
                       </li>
                       <li>
                         <a (click)="logout()">
-                          <span>
-                            Logout
-                          </span>
+                          Logout
                         </a>
                       </li>
-                
+
                     </ul>
-                
+
                   </li>
                 </ul>
               </div>

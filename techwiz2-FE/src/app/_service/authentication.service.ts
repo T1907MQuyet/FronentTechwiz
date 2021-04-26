@@ -38,14 +38,11 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-    console.log(username, password);
 
     return this.http.post<any>(`http://localhost:8888/api/customer/login?email=${username}&password=${password}`, username)
       .pipe(map(user => {
         
-        if (user) {
-          console.log(user);
-          
+        if (user) {          
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(user));
           

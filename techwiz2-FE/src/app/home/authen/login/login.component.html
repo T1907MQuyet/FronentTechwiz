@@ -22,8 +22,18 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <label>Username or E-mail Address</label>
+                                            <label>E-mail Address</label>
                                             <input type="text" class="form-control" formControlName="username">
+                                            <ul class="list-alert--err text-capitalize list-style-none p-0 text-danger">
+                                                <li *ngIf="username.errors">
+                                                    <span *ngIf="username.errors.required && clickDis">
+                                                        name is requied
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                            <div class="text-danger" *ngIf="alert_err != ''">
+                                                {{ alert_err }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -34,6 +44,13 @@
                                             <!-- <a class="pull-right" href="./index.html">(Lost Password?)</a> -->
                                             <label>Password</label>
                                             <input type="password" class="form-control" formControlName="password">
+                                            <ul class="list-alert--err text-capitalize list-style-none p-0 text-danger">
+                                                <li *ngIf="password.errors">
+                                                    <span *ngIf="password.errors.required && clickDis">
+                                                        name is requied
+                                                    </span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>

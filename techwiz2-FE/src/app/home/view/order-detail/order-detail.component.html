@@ -71,8 +71,7 @@
                                         <span class="btn float-left border-bottom"
                                             style="font-variant: lining-nums;">Order Total: {{ totalPrice | currency:'$'
                                             }}</span>
-                                        <button class="btn btn-success" type="submit"
-                                            onclick="window.open('./shop_checkout.html', '_self')">Checkout</button>
+                                        <button class="btn btn-success" type="submit" [routerLink]="isLogin == false ? '/login' : '/checkout'">Checkout</button>
                                     </div>
                                 </div>
                             </td>

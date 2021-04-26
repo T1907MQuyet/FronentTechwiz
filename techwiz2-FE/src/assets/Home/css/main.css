@@ -2,7 +2,7 @@
   background: white;
 }
 .menucolor {
-  color: gold;
+  color: #f9c56a;
   font-size: 20px;
 }
 @import "settings-panel.css";
@@ -2185,7 +2185,6 @@ article p {
 }
 .shop-content {
   padding: 60px 0;
-  font-family: Josefin Sans;
 }
 .shop-content aside h5 {
   font-weight: 800;
@@ -3014,7 +3013,7 @@ textarea {
   top: -6px;
   right: -4px;
   cursor: pointer;
-}
+}f
 .ci-close:hover {
   color: #999;
 }
@@ -3449,5 +3448,5 @@ textarea {
   }
 }
 .colomenu {
-  color: gold;
+  color: #f9c56a;
 }
