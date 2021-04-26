@@ -1,3 +1,6 @@
+a {
+    text-transform: capitalize;
+}
 .dropdown-menu {
     text-transform: capitalize;
 }
@@ -43,4 +46,9 @@
 
 .box-category-categoryDetail .dropdown li a {
     color: #000000de;
+}
+
+
+.menu-tool ul li.dropdown > a.not::before {
+    content: ''
 }

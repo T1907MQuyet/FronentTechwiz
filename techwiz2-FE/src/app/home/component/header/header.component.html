@@ -2,7 +2,7 @@
   <div class="container">
     <div class="navbar-header">
     </div>
-    <div class="desktop-megamenu"style="width: 100%">
+    <div class="desktop-megamenu" style="width: 100%">
       <div class="nav-bar-mobile">
         <nav class="nav-bar" role="navigation">
           <div class="site-nav-dropdown_inner grid__item menubar-section">
@@ -10,178 +10,123 @@
               <a class="navbar-brand" routerLink="home">
                 <img src="/assets/Home/img/nav-logo.png" alt="nav-logo">
               </a>
-              <ul class="site-nav">
-
-
-                <li class=" ">
-                  <a href="index.html" class="colomenu" >
+              <div class="d-flex justify-content-end">
+                <ul class="site-nav m-0">
+                  <li class=" ">
+                    <a routerLink="home" class="colomenu">
                       <span>
                         Home
                       </span>
-                  </a>
-                </li>
-
-                <li class=" ">
-                  <a href="collections.html" class="colomenu">
-                      <span>
-                        Menus
-                      </span>
-                  </a>
-                </li>
-                <li class=" dropdown  mega-menu ">
-                  <a href="collections/all.html" class="colomenu">
+                    </a>
+                  </li>
+                  <li class=" dropdown  mega-menu ">
+                    <a routerLink="list-product" class="colomenu">
                       <span>
                         Shop
                       </span>
-                  </a>
-
-                  <div class="site-nav-dropdown">
-                    <div class="container   style_2">
-                      <div class="col-1 parent-mega-menu">
-
-                        <div class="inner col-xs-12 col-sm-4"*ngFor="let category of listCategoryandCateDetail">
-                          <!-- Menu level 2 -->
-                          <a href="collections/special.html" class=" ">
-                            {{ category.categoryName }}
-
-                          </a>
-
-                          <ul class="dropdown">
-                            <!-- Menu level 3 -->
-                            <li *ngFor="let categoryDetail of category.categoryDetail">
-                              <a href="/category/category-detail/id/{{ categoryDetail.cate_detail_id }}">
-                                {{ categoryDetail.cate_detail_name }}
-                              </a>
-                            </li>
-
-                            <!-- Menu level 3 -->
-                            <!--<li>
-                              <a href="products/prawn-rice.html">
-                                Flat White
-                              </a>
-                            </li>-->
-                          </ul>
-
-                        </div>
-
-                      </div>
-                      <div class="col-2">
-
-                        <div class="col-left col-sm-6">
-                          <a href="#" title="">
-                            <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-1_2000x0380.jpg?v=1533295368"
-                                 alt=""/>
-                          </a>
-                          <a href="#" title="">
-                            <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-2_2000xc380.jpg?v=1533295376"
-                                 alt=""/>
-                          </a>
-                        </div>
-
-
-                        <div class="col-right col-sm-6">
-                          <a href="#" title="">
-                            <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-3_2000xe5de.jpg?v=1533295383"
-                                 alt=""/>
-                          </a>
-                        </div>
-
-
-                      </div>
-
-
-                    </div>
-                  </div>
-                </li>
-                <li><a routerLinkActive="active" routerLink="/">Contact</a></li>
-               
-                
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a class="css-pointer dropdown-toggle d-inline" routerLinkActive="active" routerLink="/login">
-                        Login
                     </a>
-                </li>
-
-                <li class="  dropdown">
-                  <a class="menu__moblie" href="pages/about-page.html" class="colomenu">
+                
+                    <div class="site-nav-dropdown">
+                      <div class="container style_2">
+                        <div class="col-1 parent-mega-menu">
+                
+                          <div class="inner col-xs-12 col-sm-4" *ngFor="let category of listCategoryandCateDetail">
+                            <!-- Menu level 2 -->
+                            <span class="text-dark font-weight-bold">
+                              {{ category.categoryName }}
+                
+                            </span>
+                
+                            <ul class="dropdown">
+                              <!-- Menu level 3 -->
+                              <li *ngFor="let categoryDetail of category.categoryDetail">
+                                <a href="/category/category-detail/id/{{ categoryDetail.cate_detail_id }}">
+                                  {{ categoryDetail.cate_detail_name }}
+                                </a>
+                              </li>
+                
+                              <!-- Menu level 3 -->
+                              <!--<li>
+                                              <a href="products/prawn-rice.html">
+                                                Flat White
+                                              </a>
+                                            </li>-->
+                            </ul>
+                
+                          </div>
+                
+                        </div>
+                        <div class="col-2">
+                
+                          <div class="col-left col-sm-6">
+                            <a href="#" title="">
+                              <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-1_2000x0380.jpg?v=1533295368"
+                                alt="" />
+                            </a>
+                            <a href="#" title="">
+                              <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-2_2000xc380.jpg?v=1533295376"
+                                alt="" />
+                            </a>
+                          </div>
+                
+                
+                          <div class="col-right col-sm-6">
+                            <a href="#" title="">
+                              <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-3_2000xe5de.jpg?v=1533295383"
+                                alt="" />
+                            </a>
+                          </div>
+                
+                
+                        </div>
+                
+                
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <a routerLinkActive="active" routerLink="/" class="colomenu">Contact</a>
+                  </li>
+                </ul>
+                <ul class="site-nav m-0">
+                  <li class="dropdown">
+                    <a class="css-pointer dropdown-toggle d-inline colomenu not" routerLinkActive="active" routerLink="/login">
+                      Login
+                    </a>
+                  </li>
+                  <li class="dropdown">
+                    <a class="css-pointer dropdown-toggle d-inline colomenu not" routerLinkActive="active" routerLink="/register">
+                      register
+                    </a>
+                  </li>
+                  <li class="dropdown">
+                    <a class="menu__moblie" href="#" class="colomenu">
                       <span>
-                        Page
-                      </span>
-                  </a>
-
-                  <ul class="site-nav-dropdown">
-                    <li>
-                      <a href="pages/contact-us.html" class="">
-                          <span>
-                            Contact Us
-                          </span>
-
-                      </a>
-                      <ul class="site-nav-dropdown">
-
-                      </ul>
-                    </li>
-
-                    <li>
-                      <a href="blogs/news.html" class="">
-                          <span>
-                            Blog
-                          </span>
-                      </a>
-                      <ul class="site-nav-dropdown">
-
-                      </ul>
-                    </li>
-
-                  </ul>
-
-
-                </li>
-                <li class="dropdown">
-                  <a class="menu__moblie" href="#" class="colomenu">
-                      <span style="">
                         <img src="assets/Home/Trend-Avatar-Facebook%20(1).jpg" style="width: 30px;height: 30px">
                       </span>
-                  </a>
-
-                  <ul class="site-nav-dropdown">
-                    <li>
-                      <a href="#" class="">
+                    </a>
+                
+                    <ul class="site-nav-dropdown">
+                      <li>
+                        <a routerLink="profile" class="">
                           <span>
                             Profile
                           </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="">
                           <span>
                             Logout
                           </span>
-                      </a>
-                    </li>
-
-                  </ul>
-
-                </li>
-                <li class="dropdown">
-                  <a class="menu__moblie" href="#" class="colomenu">
-                      <span style="">
-                        Login
-                      </span>
-                  </a>
-                  <ul class="site-nav-dropdown">
-                    <li>
-                      <a href="#" class="">
-                          <span>
-                            Register
-                          </span>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+                        </a>
+                      </li>
+                
+                    </ul>
+                
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </nav>
