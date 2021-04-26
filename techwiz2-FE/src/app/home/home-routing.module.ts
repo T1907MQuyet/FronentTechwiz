@@ -15,6 +15,8 @@ import { PasswordControllComponent } from './customer/password-controll/password
 import { OrdersByCustomerComponent } from './customer/orders-by-customer/orders-by-customer.component';
 import { AuthGuardGuard } from '../_helpers/auth.guard';
 import { CheckoutComponent } from './view/checkout/checkout.component';
+import {AboutComponent} from './view/about/about.component';
+import {ContactComponent} from './view/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -41,6 +43,12 @@ const routes: Routes = [
     {
       path: 'login', component: LoginComponent
     },
+      {
+        path: 'about', component: AboutComponent
+      },
+      {
+        path: 'contact', component: ContactComponent
+      },
     {
       path: 'register', component: RegisterComponent
     },
