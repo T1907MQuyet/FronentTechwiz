@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/app/_model/environment';
 import { order } from 'src/app/_model/order';
+import { OrderService } from 'src/app/_service/home/order/order.service';
 import { ProductService } from 'src/app/_service/home/product/product.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private orderSv: OrderService
   ) { }
 
   contain;
@@ -29,6 +31,8 @@ export class ProductDetailComponent implements OnInit {
     "priority": 1,
     "image": ""
   }
+  showAlert = false;
+
   ngOnInit(): void {
     this.productService.getProductDetail(this.activatedRoute.snapshot.paramMap.get("id")).subscribe(
       data => {
@@ -76,24 +80,22 @@ export class ProductDetailComponent implements OnInit {
   }
   isAdd = false;
   AddtoCart() {
-    
-
-    
     if (this.isAdd == false) {
-      order.push(
-        {
-          "order_id": this.inforProduct.product_id,
+      // order.push(
+      let order = {
+        "order_id": this.inforProduct.product_id,
 
-          "product_id": this.inforProduct.product_id,
-          "product_name": this.inforProduct.product_name,
-          "image": this.inforProduct.image,
-          "price": this.inforProduct.price,
-          "discount": this.inforProduct.discount,
+        "product_id": this.inforProduct.product_id,
+        "product_name": this.inforProduct.product_name,
+        "image": this.inforProduct.image,
+        "price": this.inforProduct.price,
+        "discount": this.inforProduct.discount,
 
-          "order_count": this.quantity,
-        }
-      )
-      
+        "order_count": this.quantity,
+      }
+      this.showAlert = true;
+      this.offsau2s();
+      this.orderSv.pushOrder(order);
       this.isAdd = true;
     }
 
@@ -101,12 +103,22 @@ export class ProductDetailComponent implements OnInit {
       order.forEach(e => {
         if (e.order_id == this.inforProduct.product_id) {
           e.order_count = this.quantity + e.order_count;
-          
+          this.showAlert = !this.showAlert;
+          if (this.showAlert == false) {
+            this.orderSv.upgradeOrder(e);
+          }
+          else {
+            this.offsau2s();
+          }
         }
       })
     }
-
-
-
   }
+
+  offsau2s() {
+    setTimeout(() => {
+      this.showAlert = false;
+    }, 2000);
+  }
+
 }

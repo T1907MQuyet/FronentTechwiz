@@ -12,6 +12,10 @@ import { ListCategoryComponent } from './view/Category/list-category/list-catego
 import { ListProductByCategory } from './view/product/list-product/list-product-byCategory.component';
 import { ProductDetailComponent } from './view/product/product-detail/product-detail.component';
 import { RestaurantComponent } from './view/home-page/restaurant/restaurant.component';
+import { OrderDetailComponent } from './view/order-detail/order-detail.component';
+import { CheckoutComponent } from './view/checkout/checkout.component';
+import { LoginComponent } from './authen/login/login.component';
+import { RegisterComponent } from './authen/register/register.component';
 
 
 @NgModule({
@@ -21,7 +25,11 @@ import { RestaurantComponent } from './view/home-page/restaurant/restaurant.comp
     ListProductComponent, HomePageComponent, ListCategoryComponent,
     ListProductByCategory,
     ProductDetailComponent,
-    RestaurantComponent],
+    RestaurantComponent,
+    OrderDetailComponent,
+    CheckoutComponent,
+    LoginComponent,
+    RegisterComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

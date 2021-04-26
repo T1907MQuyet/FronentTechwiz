@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/_service/home/category/category.service';
 import { order } from 'src/app/_model/order';
+import { OrderService } from 'src/app/_service/home/order/order.service';
 
 @Component({
   selector: 'app-header',
@@ -10,20 +11,19 @@ import { order } from 'src/app/_model/order';
 export class HeaderComponent implements OnInit {
 
   constructor(
-    private category: CategoryService
+    private category: CategoryService,
+    private orderService: OrderService
   ) { }
 
   ListCategoryActive;
   ListCategoryDetailActive = [];
 
   listCategoryandCateDetail = [
-    
-   
+
+
   ]
   ngOnInit(): void {
     this.getAllcategoryActive();
-      console.log(order);
-
   }
 
   getAllcategoryActive() {

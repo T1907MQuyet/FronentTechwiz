@@ -1,34 +1,6 @@
-<!-- <section class="recipie-single single-recipe">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="single-recipe-image">
-                    <img class="img-responsive" src="/assets/Home/img/bg3.png" alt="">
-                </div>
-
-            </div>
-            <div class="col-md-6">
-                <ul class="box-infor__product list-style-none p-0">
-                    <li>
-                        <h3 class="font-weight-normal">
-                            {{ inforProduct.product_name }}
-                        </h3>
-                    </li>
-                    <li>
-                        <h3 class="product-price d-block font-weight-normal">{{ inforProduct.price | currency:'$' }} <span
-                                class="text-lineThrough">{{ inforProduct.discount
-                                | currency:'$' }}</span></h3>
-                    </li>
-                    <li>
-                        <button class=" btn btn-default">Add to cart</button>
-                    </li>
-                </ul>
-                <h3 class="heading-bottom-line">Descriptions</h3>
-                <p>{{ inforProduct.descriptions }}</p>
-            </div>
-        </div>
-    </div>
-</section> -->
+<dialog class="dialog_success--order" [class]="showAlert ? 'd-block' : 'd-none'">
+    Create order success
+</dialog>
 
 <section class="page_header">
     <div class="container">
