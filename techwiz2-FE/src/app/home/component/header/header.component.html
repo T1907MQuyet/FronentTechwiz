@@ -1,247 +1,186 @@
-<<<<<<< HEAD
 <nav class="navbar navbar-fixed-top" style="">
   <div class="container">
     <div class="navbar-header">
     </div>
-      <div class="desktop-megamenu"style="width: 100%">
-        <div class="nav-bar-mobile">
-          <nav class="nav-bar" role="navigation">
-            <div class="site-nav-dropdown_inner grid__item menubar-section">
-              <div class="menu-tool">
-                <a class="navbar-brand" routerLink="home">
-                  <img src="/assets/Home/img/nav-logo.png" alt="nav-logo">
-                </a>
-                <ul class="site-nav">
+    <div class="desktop-megamenu"style="width: 100%">
+      <div class="nav-bar-mobile">
+        <nav class="nav-bar" role="navigation">
+          <div class="site-nav-dropdown_inner grid__item menubar-section">
+            <div class="menu-tool">
+              <a class="navbar-brand" routerLink="home">
+                <img src="/assets/Home/img/nav-logo.png" alt="nav-logo">
+              </a>
+              <ul class="site-nav">
 
 
-                  <li class=" ">
-                    <a href="index.html" class="colomenu" >
+                <li class=" ">
+                  <a href="index.html" class="colomenu" >
                       <span>
                         Home
                       </span>
-                    </a>
-                  </li>
+                  </a>
+                </li>
 
-                  <li class=" ">
-                    <a href="collections.html" class="colomenu">
+                <li class=" ">
+                  <a href="collections.html" class="colomenu">
                       <span>
                         Menus
                       </span>
-                    </a>
-                  </li>
-                  <li class=" dropdown  mega-menu ">
-                    <a href="collections/all.html" class="colomenu">
+                  </a>
+                </li>
+                <li class=" dropdown  mega-menu ">
+                  <a href="collections/all.html" class="colomenu">
                       <span>
                         Shop
                       </span>
-                    </a>
+                  </a>
 
-                    <div class="site-nav-dropdown">
-                      <div class="container   style_2">
-                        <div class="col-1 parent-mega-menu">
+                  <div class="site-nav-dropdown">
+                    <div class="container   style_2">
+                      <div class="col-1 parent-mega-menu">
 
-                          <div class="inner col-xs-12 col-sm-4"*ngFor="let category of listCategoryandCateDetail">
-=======
-<nav class="navbar navbar-fixed-top" style="background: rgb(0 0 0 / 74%)">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" routerLink="home">
-                <img src="/assets/Home/img/nav-logo.png" alt="nav-logo">
-            </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse d-flex justify-content-end">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a routerLinkActive="active" routerLink="home" class="dropdown-toggle" data-toggle="dropdown"
-                        role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+                        <div class="inner col-xs-12 col-sm-4"*ngFor="let category of listCategoryandCateDetail">
+                          <!-- Menu level 2 -->
+                          <a href="collections/special.html" class=" ">
+                            {{ category.categoryName }}
 
-                </li>
-                <li class="dropdown">
-                    <a routerLinkActive="active" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                        aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
-                    <!-- <ul class="dropdown-menu">
-                        <li><a routerLinkActive="active" routerLink="/list-product">List product</a></li>
-                        <li><a routerLinkActive="active" routerLink="/menu_overlay.html">Menu - Overlay</a></li>
-                        <li><a routerLinkActive="active" routerLink="/menu_tile.html">Menu - Tile</a></li>
-                        <li><a routerLinkActive="active" routerLink="/menu_grid.html">Menu - Grid</a></li>
-                        <li><a routerLinkActive="active" routerLink="/menu_all.html">Menu All</a></li>
-                    </ul> -->
-                </li>
-                <li class="dropdown position-unset">
-                    <a routerLinkActive="active" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                        aria-haspopup="true" aria-expanded="false">Shop<span class="caret"></span></a>
-                    <ul class="dropdown-menu row box-category-categoryDetail">
+                          </a>
 
-                        <li class="col-4 d-inline float-left" *ngFor="let category of listCategoryandCateDetail">
->>>>>>> f6f3c53213aa0b1ad9366ef17b9a055da6dbd6bf
-                            <!-- Menu level 2 -->
-                            <a href="collections/special.html" class=" ">
-                              {{ category.categoryName }}
+                          <ul class="dropdown">
+                            <!-- Menu level 3 -->
+                            <li *ngFor="let categoryDetail of category.categoryDetail">
+                              <a href="/category/category-detail/id/{{ categoryDetail.cate_detail_id }}">
+                                {{ categoryDetail.cate_detail_name }}
+                              </a>
+                            </li>
 
-                            </a>
+                            <!-- Menu level 3 -->
+                            <!--<li>
+                              <a href="products/prawn-rice.html">
+                                Flat White
+                              </a>
+                            </li>-->
+                          </ul>
 
-                            <ul class="dropdown">
-                              <!-- Menu level 3 -->
-                              <li *ngFor="let categoryDetail of category.categoryDetail">
-                                <a href="/category/category-detail/id/{{ categoryDetail.cate_detail_id }}">
-                                  {{ categoryDetail.cate_detail_name }}
-                                </a>
-                              </li>
-
-                              <!-- Menu level 3 -->
-                              <!--<li>
-                                <a href="products/prawn-rice.html">
-                                  Flat White
-                                </a>
-                              </li>-->
-                            </ul>
-
-                          </div>
-
-<<<<<<< HEAD
                         </div>
-                        <div class="col-2">
 
-                          <div class="col-left col-sm-6">
-                            <a href="#" title="">
-                              <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-1_2000x0380.jpg?v=1533295368"
-                                   alt=""/>
-                            </a>
-                            <a href="#" title="">
-                              <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-2_2000xc380.jpg?v=1533295376"
-                                   alt=""/>
-                            </a>
-                          </div>
+                      </div>
+                      <div class="col-2">
 
-
-                          <div class="col-right col-sm-6">
-                            <a href="#" title="">
-                              <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-3_2000xe5de.jpg?v=1533295383"
-                                   alt=""/>
-                            </a>
-                          </div>
+                        <div class="col-left col-sm-6">
+                          <a href="#" title="">
+                            <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-1_2000x0380.jpg?v=1533295368"
+                                 alt=""/>
+                          </a>
+                          <a href="#" title="">
+                            <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-2_2000xc380.jpg?v=1533295376"
+                                 alt=""/>
+                          </a>
+                        </div>
 
 
+                        <div class="col-right col-sm-6">
+                          <a href="#" title="">
+                            <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-3_2000xe5de.jpg?v=1533295383"
+                                 alt=""/>
+                          </a>
                         </div>
 
 
                       </div>
-                    </div>
-                  </li>
 
-                  <li class="">
-                    <a href="collections/featured.html" class="colomenu">
+
+                    </div>
+                  </div>
+                </li>
+
+                <li class="">
+                  <a href="collections/featured.html" class="colomenu">
                       <span>
                         Special
                       </span>
-                    </a>
-=======
-                </li>
-                <li><a routerLinkActive="active" routerLink="/contact.html">Contact</a></li>
-               
-                
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a class="css-pointer dropdown-toggle d-inline" routerLinkActive="active" routerLink="/login">
-                        Login
-                    </a>
-                </li>
-                <li class="dropdown"><a class="css-pointer dropdown-toggle d-inline" routerLinkActive="active" routerLink="/register">
-                        Register
-                    </a>
-                </li>
-            </ul>
-        </div>
->>>>>>> f6f3c53213aa0b1ad9366ef17b9a055da6dbd6bf
+                  </a>
 
-                  </li>
+                </li>
 
-                  <li class="  dropdown">
-                    <a class="menu__moblie" href="pages/about-page.html" class="colomenu">
+                <li class="  dropdown">
+                  <a class="menu__moblie" href="pages/about-page.html" class="colomenu">
                       <span>
                         Page
                       </span>
-                    </a>
+                  </a>
 
-                    <ul class="site-nav-dropdown">
-                      <li>
-                        <a href="pages/contact-us.html" class="">
+                  <ul class="site-nav-dropdown">
+                    <li>
+                      <a href="pages/contact-us.html" class="">
                           <span>
                             Contact Us
                           </span>
 
-                        </a>
-                        <ul class="site-nav-dropdown">
+                      </a>
+                      <ul class="site-nav-dropdown">
 
-                        </ul>
-                      </li>
+                      </ul>
+                    </li>
 
-                      <li>
-                        <a href="blogs/news.html" class="">
+                    <li>
+                      <a href="blogs/news.html" class="">
                           <span>
                             Blog
                           </span>
-                        </a>
-                        <ul class="site-nav-dropdown">
+                      </a>
+                      <ul class="site-nav-dropdown">
 
-                        </ul>
-                      </li>
+                      </ul>
+                    </li>
 
-                    </ul>
+                  </ul>
 
 
-                  </li>
-                  <li class="  dropdown">
-                    <a class="menu__moblie" href="#" class="colomenu">
+                </li>
+                <li class="  dropdown">
+                  <a class="menu__moblie" href="#" class="colomenu">
                       <span style="">
                         <i class="icon-user icons"style="color: gold"></i>
                       </span>
-                    </a>
+                  </a>
 
-                    <ul class="site-nav-dropdown">
-                      <li>
-                        <a href="#" class="">
+                  <ul class="site-nav-dropdown">
+                    <li>
+                      <a href="#" class="">
                           <span>
                             Profile
                           </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" class="">
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="">
                           <span>
                             Login
                           </span>
 
-                        </a>
-                      </li>
+                      </a>
+                    </li>
 
-                      <li>
-                        <a href="#" class="">
+                    <li>
+                      <a href="#" class="">
                           <span>
                             Register
                           </span>
-                        </a>
-                      </li>
+                      </a>
+                    </li>
 
-                    </ul>
+                  </ul>
 
 
-                  </li>
+                </li>
 
-                </ul>
-              </div>
+              </ul>
             </div>
-          </nav>
-        </div>
+          </div>
+        </nav>
       </div>
     </div>
+  </div>
 
 </nav>
