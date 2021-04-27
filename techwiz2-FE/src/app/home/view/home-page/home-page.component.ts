@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { CategoryService } from 'src/app/_service/home/category/category.service';
 
 @Component({
@@ -9,12 +10,13 @@ import { CategoryService } from 'src/app/_service/home/category/category.service
 export class HomePageComponent implements OnInit {
 
   constructor(
-    private category: CategoryService
-
+    private category: CategoryService,
+    private formBuild: FormBuilder
   ) { }
 
   ListCategoryActive;
   ListCategoryDetailActive = [];
+  formSearch: FormGroup;
 
   listCategoryandCateDetail = [
     {
@@ -24,8 +26,13 @@ export class HomePageComponent implements OnInit {
   ]
   ngOnInit(): void {
     this.getAllcategoryActive();
-    console.log(this.listCategoryandCateDetail);
+
     
+
+    this.formSearch = this.formBuild.group({
+      search: [''],
+      price: [0]
+    })
   }
 
   getAllcategoryActive() {

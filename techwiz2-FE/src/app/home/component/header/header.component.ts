@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/_service/Authentication.Service';
 import { User } from 'src/app/_model/User';
 import { BehaviorSubject } from 'rxjs';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +19,8 @@ export class HeaderComponent implements OnInit {
     private category: CategoryService,
     private orderService: OrderService,
     private authentication: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private formBuild: FormBuilder
   ) { }
 
   ListCategoryActive;
@@ -43,7 +45,7 @@ export class HeaderComponent implements OnInit {
         }
       )
     }
-    
+
   }
 
   getAllcategoryActive() {
@@ -77,4 +79,11 @@ export class HeaderComponent implements OnInit {
     this.isLogin = false;
     this.router.navigate(['/login']);
   }
+
+  isnavMobile= false;
+  showNavMobile() {
+    this.isnavMobile = !this.isnavMobile
+  }
+
+  
 }

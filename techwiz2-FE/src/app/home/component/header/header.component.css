@@ -21,6 +21,12 @@ a {
     width: 25%;
 }
 
+.nav-list {
+    flex-basis: 90%;
+    display: inline-flex;
+    justify-content: center;
+}
+
 .box-category-categoryDetail a {
     color: #000;
 }
@@ -48,7 +54,20 @@ a {
     color: #000000de;
 }
 
-
 .menu-tool ul li.dropdown > a.not::before {
-    content: ''
+    content: "";
+}
+
+@media (min-width: 576px) {
+    .navbar-toggler {
+        display: none;
+    }
+}
+
+.sub-menu a {
+    color: black;
+}
+
+.sub-menu a:hover {
+    color: #f9c56a;
 }

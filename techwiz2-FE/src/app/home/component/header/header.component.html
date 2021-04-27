@@ -1,8 +1,11 @@
-<nav class="navbar navbar-fixed-top" style="">
+<nav class="navbar navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
     </div>
     <div class="desktop-megamenu" style="width: 100%">
+      <button class="navbar-toggler mt-4 float-right btn" type="button" (click)="showNavMobile()">
+        <i class="fas fa-bars"></i>
+      </button>
       <div class="nav-bar-mobile">
         <nav class="nav-bar" role="navigation">
           <div class="site-nav-dropdown_inner grid__item menubar-section">
@@ -11,7 +14,7 @@
                 <img src="/assets/Home/img/nav-logo.png" alt="nav-logo">
               </a>
               <div class="d-flex justify-content-around">
-                <ul class="site-nav m-0">
+                <ul class="site-nav m-0 nav-list">
                   <li class=" ">
                     <a routerLink="home" class="colomenu">
                       Home
@@ -33,20 +36,13 @@
 
                             </span>
 
-                            <ul class="dropdown">
+                            <ul class="dropdown sub-menu">
                               <!-- Menu level 3 -->
                               <li *ngFor="let categoryDetail of category.categoryDetail">
                                 <a href="/category/category-detail/id/{{ categoryDetail.cate_detail_id }}">
                                   {{ categoryDetail.cate_detail_name }}
                                 </a>
                               </li>
-
-                              <!-- Menu level 3 -->
-                              <!--<li>
-                                              <a href="products/prawn-rice.html">
-                                                Flat White
-                                              </a>
-                                            </li>-->
                             </ul>
 
                           </div>
@@ -101,8 +97,10 @@
                     </a>
                   </li>
                   <li class="dropdown" *ngIf="isLogin == true">
+
                     <a class="menu__moblie not colomenu">
-                      <img [src]="userInfor.avatar" [alt]="userInfor.avatar" style="width: 30px;height: 30px">
+                      <img [src]="userInfor.avatar" [alt]="userInfor.avatar"
+                        style="width: 30px;height: 30px; border-radius: 20px;">
                     </a>
 
                     <ul class="site-nav-dropdown">
@@ -125,6 +123,112 @@
             </div>
           </div>
         </nav>
+      </div>
+      <div class="d-block" *ngIf="isnavMobile">
+        <ul class="site-nav d-flex justify-content-around w-100 py-2 m-0 p-0">
+          <li class="dropdown" *ngIf="isLogin == true">
+            <a class="menu__moblie not colomenu">
+              <img [src]="userInfor.avatar" [alt]="userInfor.avatar"
+                style="width: 30px;height: 30px; border-radius: 20px;">
+            </a>
+
+            <ul class="site-nav-dropdown">
+              <li>
+                <a routerLink="/profile" class="">
+                  Profile
+                </a>
+              </li>
+              <li>
+                <a (click)="logout()">
+                  Logout
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+          <li class=" ">
+            <a routerLink="home" class="colomenu">
+              Home
+            </a>
+          </li>
+          <li class=" dropdown  mega-menu ">
+            <a routerLink="list-product" class="colomenu">
+              Shop
+            </a>
+
+            <div class="site-nav-dropdown">
+              <div class="container style_2">
+                <div class="col-1 parent-mega-menu">
+
+                  <div class="inner col-xs-12 col-sm-4" *ngFor="let category of listCategoryandCateDetail">
+                    <!-- Menu level 2 -->
+                    <span class="text-dark font-weight-bold">
+                      {{ category.categoryName }}
+
+                    </span>
+
+                    <ul class="dropdown">
+                      <!-- Menu level 3 -->
+                      <li *ngFor="let categoryDetail of category.categoryDetail">
+                        <a href="/category/category-detail/id/{{ categoryDetail.cate_detail_id }}">
+                          {{ categoryDetail.cate_detail_name }}
+                        </a>
+                      </li>
+                    </ul>
+
+                  </div>
+
+                </div>
+                <div class="col-2">
+
+                  <div class="col-left col-sm-6">
+                    <a href="#" title="">
+                      <img
+                        src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-1_2000x0380.jpg?v=1533295368"
+                        alt="" />
+                    </a>
+                    <a href="#" title="">
+                      <img
+                        src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-2_2000xc380.jpg?v=1533295376"
+                        alt="" />
+                    </a>
+                  </div>
+
+
+                  <div class="col-right col-sm-6">
+                    <a href="#" title="">
+                      <img
+                        src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-3_2000xe5de.jpg?v=1533295383"
+                        alt="" />
+                    </a>
+                  </div>
+
+
+                </div>
+
+
+              </div>
+            </div>
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/" class="colomenu">Contact</a>
+          </li>
+        </ul>
+        <ul class="site-nav d-flex justify-content-around w-100 py-2 m-0">
+          <li class="dropdown" *ngIf="isLogin == false">
+            <a class="css-pointer dropdown-toggle d-inline colomenu not" routerLinkActive="active" routerLink="/login">
+              Login
+            </a>
+          </li>
+          <li class="dropdown" *ngIf="isLogin == false">
+            <a class="css-pointer dropdown-toggle d-inline colomenu not" routerLinkActive="active"
+              routerLink="/register">
+              register
+            </a>
+          </li>
+
+        </ul>
       </div>
     </div>
   </div>
