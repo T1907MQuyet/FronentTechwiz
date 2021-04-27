@@ -63,13 +63,11 @@ export class ListProductByCategory implements OnInit {
         console.log(this.listMenuActive);
 
         for (let i = 0; i < this.listMenuActive.length; i++) {
-          console.log(this.listMenuActive[i]);
 
           this.category.getAllcategoryDetailByCategoryID(this.listMenuActive[i].cate_id).subscribe(
             data => {              
               // this.ListCategoryDetailActive[i] = data;
               this.ListmenuDetailActive[i] = data;
-              console.log(data);
               
               this.listMenuandMenuDetail.push(
                 {
@@ -77,12 +75,10 @@ export class ListProductByCategory implements OnInit {
                   menuDetail: this.ListmenuDetailActive[i]
                 }
               )
-              console.log(this.listMenuandMenuDetail);
 
             }
           )
         }
-        console.log(this.listMenuandMenuDetail);
         
 
       }

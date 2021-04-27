@@ -22,6 +22,8 @@ export class OrderService {
   pushOrder(orderDetail: any) {
     
     if (this.listOrderInLocal == null) {
+      console.log("oj");
+      
       order.push(orderDetail);
       localStorage.setItem('order', JSON.stringify(order));
     }

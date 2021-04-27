@@ -109,15 +109,17 @@ export class ProductDetailComponent implements OnInit {
       // this.setValueForOrderInListOrderLocal();
       console.log(order);
       
-      order.forEach(e => {        
-        if (e.order_id == this.inforProduct.product_id) {
-          this.showAlert = !this.showAlert;            
-            e.order_count = this.quantity + e.order_count;            
-            this.orderSv.upgradeOrderInLocal(e);            
-          
-            this.offsau2s();
+      
+
+      for(let i = 0; i < order.length; i++) {
+        if (order[i].order_id == this.inforProduct.product_id) {
+          this.showAlert = !this.showAlert;
+          order[i].order_count = this.quantity + order[i].order_count;
+          this.orderSv.upgradeOrderInLocal(order[i]);
+
+          this.offsau2s();
         }
-      })
+      }
     }
   }
 

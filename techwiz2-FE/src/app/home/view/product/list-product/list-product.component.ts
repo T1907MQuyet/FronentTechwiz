@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from 'src/app/_service/home/category/category.service';
 import { MenuService } from 'src/app/_service/home/menu/menu.service';
 import { ProductService } from 'src/app/_service/home/product/product.service';
 
@@ -11,21 +12,26 @@ export class ListProductComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private menuService: MenuService
+    private menuService: MenuService,
+    private category: CategoryService
   ) { }
   isMenu = false;
-  ListCategoryActive;
+  ListCategoryActive = [];
   listMenuActive;
   ListmenuDetailActive = [];
   listMenuandMenuDetail = [];
   err = '';
+  contain;
   ngOnInit(): void {
     this.productService.getAllProductActive().subscribe(
       data => {
-        this.ListCategoryActive = data;
+        this.contain = data;
+        this.contain.forEach(e => {
+          this.ListCategoryActive.push(e); this.err = '';
+        });
         // Delete or add discount if discount > 0
         let i = -1;
-        this.ListCategoryActive.forEach(e => {
+        this.contain.forEach(e => {
           i++;
           if (e.discount > 0) {
             console.log(i);
@@ -54,9 +60,8 @@ export class ListProductComponent implements OnInit {
         for (let i = 0; i < this.listMenuActive.length; i++) {
           console.log(this.listMenuActive[i]);
 
-          this.menuService.getAllmenuDetailBymenuID(this.listMenuActive[i].menu_id).subscribe(
+          this.category.getAllcategoryDetailByCategoryID(this.listMenuActive[i].cate_id).subscribe(
             data => {
-              console.log(data);
 
               // this.ListCategoryDetailActive[i] = data;
               this.ListmenuDetailActive[i] = data;
