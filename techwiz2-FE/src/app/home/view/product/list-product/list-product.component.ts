@@ -52,28 +52,29 @@ export class ListProductComponent implements OnInit {
   }
 
   getAllMenuActiveAndMenuDetail() {
-    this.menuService.getAllMenu().subscribe(
+    this.category.getAllcategoryActive().subscribe(
       data => {
         this.listMenuActive = data;
         console.log(this.listMenuActive);
-        
+
         for (let i = 0; i < this.listMenuActive.length; i++) {
-          console.log(this.listMenuActive[i]);
 
           this.category.getAllcategoryDetailByCategoryID(this.listMenuActive[i].cate_id).subscribe(
             data => {
-
               // this.ListCategoryDetailActive[i] = data;
               this.ListmenuDetailActive[i] = data;
+
               this.listMenuandMenuDetail.push(
                 {
-                  menuName: this.listMenuActive[i].menu_name,
+                  menuName: this.listMenuActive[i].cate_name,
                   menuDetail: this.ListmenuDetailActive[i]
                 }
               )
+
             }
           )
         }
+
 
       }
 
