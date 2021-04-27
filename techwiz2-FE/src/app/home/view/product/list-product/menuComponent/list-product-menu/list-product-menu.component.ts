@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { order, Order } from 'src/app/_model/order';
 import { MenuService } from 'src/app/_service/home/menu/menu.service';
 import { ProductService } from 'src/app/_service/home/product/product.service';
 
@@ -105,5 +107,59 @@ export class ListProductMenuComponent implements OnInit {
       this.getAllActive();
     }
     
+  }
+
+  listOrderInLocal = new BehaviorSubject<Order>(JSON.parse(localStorage.getItem('order'))).value;
+
+  AddtoCartByListproduct(val) {
+    console.log(val);
+    
+    // if (this.isAdd == false) {
+    //   //// order.push
+    //   // let orderDetail = {
+    //   //   "order_id": this.inforProduct.product_id,
+
+    //   //   "product_id": this.inforProduct.product_id,
+    //   //   "product_name": this.inforProduct.product_name,
+    //   //   "image": this.inforProduct.image,
+    //   //   "price": this.inforProduct.price,
+    //   //   "discount": this.inforProduct.discount,
+
+    //   //   "order_count": this.quantity,
+    //   // }
+    //   // this.showAlert = true;
+    //   // this.offsau2s();
+    //   // console.log(orderDetail);
+
+    //   // this.orderSv.pushOrder(orderDetail);
+    //   // this.isAdd = true;
+    // }
+
+    // else {
+    //   // this.setValueForOrderInListOrderLocal();
+    //   console.log(order);
+
+    //   order.forEach(e => {
+    //     console.log(e);
+
+    //     if (e.order_id == this.inforProduct.product_id) {
+    //       this.showAlert = !this.showAlert;
+    //       e.order_count = this.quantity + e.order_count;
+    //       this.orderSv.upgradeOrderInLocal(e);
+
+    //       this.offsau2s();
+
+    //     }
+    //   })
+    // }
+  }
+
+  setValueForOrderInListOrderLocal() {
+    for (const key in this.listOrderInLocal) {
+      if (Object.prototype.hasOwnProperty.call(this.listOrderInLocal, key)) {
+        const element = this.listOrderInLocal[key];
+        order.push(element)
+      }
+    }
   }
 }

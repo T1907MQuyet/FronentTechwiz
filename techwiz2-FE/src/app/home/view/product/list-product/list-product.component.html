@@ -61,14 +61,14 @@
                                     <img [src]="product.image" [alt]="product.image" />
 
                                 </div>
-                                <h4><a routerLinkActive="active"
+                                <h4><a routerLinkActive="active" class="product--name"
                                         routerLink="/product-detail/id/{{ product.product_id }}">{{ product.product_name
                                         }}</a></h4>
 
                                 <div class="product-price d-block ssp">{{ product.price | currency:'$' }} <span>{{
                                         product.discount | currency:'$' }}</span></div>
                                 <div class="shop-meta text-center" *ngIf="isMenu == true">
-                                    <a routerLinkActive="active" routerLink="/" class=""><i
+                                    <a (click)="AddtoCartByListproduct(product)"><i
                                             class="fa fa-shopping-cart"></i> Add to cart</a>
                                 </div>
                             </div>

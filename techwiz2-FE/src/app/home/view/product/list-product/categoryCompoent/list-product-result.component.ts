@@ -25,41 +25,39 @@ export class ListProductResultComponent implements OnInit {
     listCategoryandCategoryDetail = [];
     valuebySearch = this.productService.getValueBySearch();
     ngOnInit(): void {
-        // this.productService.getAllProductActive().subscribe(
-        //     data => {
-        //         this.contain = data;
-        //         console.log(this.valuebySearch);
+        this.productService.getAllProductActive().subscribe(
+            data => {
+                this.contain = data;
                 
-        //         this.contain.forEach(e => {
-        //             console.log(e);
-        //             if ((e.product_name.indexOf(this.valuebySearch.name) > -1) &&
-        //                 (e.price > this.valuebySearch.minPrice) &&
-        //                 (e.price < this.valuebySearch.maxPrice)
-        //             ) {
-        //                 this.ListCategoryActive.push(e);
-        //                 this.err = '';
-        //             }
-        //             else {
-        //                 this.err = 'No products matched';
-        //             }
-        //         });
-        //         // Delete or add discount if discount > 0
-        //         let i = -1;
-        //         this.ListCategoryActive.forEach(e => {
-        //             i++;
-        //             if (e.discount > 0) {
-        //                 this.ListCategoryActive[i].price = e.price *= ((100 - e.discount) / 100)
-        //             }
-        //             else {
-        //                 delete e.discount;
-        //                 this.ListCategoryActive[i] = e;
-        //             }
-        //         });
-        //     }
+                this.contain.forEach(e => {
+                    if ((e.product_name.toLowerCase().indexOf(this.valuebySearch.name) > -1) &&
+                        (e.price > this.valuebySearch.minPrice) &&
+                        (e.price < this.valuebySearch.maxPrice)
+                    ) {
+                        this.ListCategoryActive.push(e);
+                        this.err = '';
+                    }
+                    else {
+                        this.err = 'No products matched';
+                    }
+                });
+                // Delete or add discount if discount > 0
+                let i = -1;
+                this.ListCategoryActive.forEach(e => {
+                    i++;
+                    if (e.discount > 0) {
+                        this.ListCategoryActive[i].price = e.price *= ((100 - e.discount) / 100)
+                    }
+                    else {
+                        delete e.discount;
+                        this.ListCategoryActive[i] = e;
+                    }
+                });
+            }
 
-        // )
+        )
         this.getAllMenuActiveAndMenuDetail();
-        this.Get_product_menu_detail();
+        // this.Get_product_menu_detail();
     }
 
     Get_product_menu_detail() {

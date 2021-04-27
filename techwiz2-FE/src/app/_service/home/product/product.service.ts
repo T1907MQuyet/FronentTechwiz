@@ -35,13 +35,15 @@ export class ProductService {
   }
   setValueBySearch(name, minPrice, maxPrice) {
     return this.containValueSearch = {
-      name: name,
+      name: name.toLowerCase(),
       minPrice: minPrice,
       maxPrice: maxPrice
     }
   }
 
   getValueBySearch() {
+    console.log(this.containValueSearch);
+    
     return this.containValueSearch;
   }
 }

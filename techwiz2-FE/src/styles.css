@@ -203,3 +203,13 @@ a {
         max-width: 33.333333%;
     }
 }
+
+
+.product--name {
+        word-wrap: break-word;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}

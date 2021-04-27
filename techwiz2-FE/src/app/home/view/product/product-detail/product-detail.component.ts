@@ -57,7 +57,7 @@ export class ProductDetailComponent implements OnInit {
           delete this.inforProduct.discount;
         }
 
-        this.getAllProductOrder();
+        this.getAllProductByCategoryDetails();
       }
     )
 
@@ -109,16 +109,13 @@ export class ProductDetailComponent implements OnInit {
       // this.setValueForOrderInListOrderLocal();
       console.log(order);
       
-      order.forEach(e => {
-        console.log(e);
-        
+      order.forEach(e => {        
         if (e.order_id == this.inforProduct.product_id) {
           this.showAlert = !this.showAlert;            
             e.order_count = this.quantity + e.order_count;            
             this.orderSv.upgradeOrderInLocal(e);            
           
             this.offsau2s();
-          
         }
       })
     }
@@ -141,7 +138,7 @@ export class ProductDetailComponent implements OnInit {
 
   containProductOrder;
   ListCategoryActive = [];
-  getAllProductOrder() {    
+  getAllProductByCategoryDetails() {
     this.productService.getAllProductByCategoryDetails(this.contain.category_detail.cate_detail_id).subscribe(
       data => {
         this.containProductOrder = data;
