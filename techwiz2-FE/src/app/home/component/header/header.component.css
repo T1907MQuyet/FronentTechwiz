@@ -1,5 +1,6 @@
 a {
-    text-transform: capitalize;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
 }
 .dropdown-menu {
     text-transform: capitalize;
@@ -71,3 +72,4 @@ a {
 .sub-menu a:hover {
     color: #f9c56a;
 }
+

@@ -1,6 +1,9 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/_service/home/category/category.service';
+import { ProductService } from 'src/app/_service/home/product/product.service';
 
 @Component({
   selector: 'app-home-page',
@@ -11,8 +14,10 @@ export class HomePageComponent implements OnInit {
 
   constructor(
     private category: CategoryService,
-    private formBuild: FormBuilder
-  ) { }
+    private formBuild: FormBuilder,
+    private productService: ProductService,
+    private rout: Router
+    ) { }
 
   ListCategoryActive;
   ListCategoryDetailActive = [];
@@ -24,14 +29,17 @@ export class HomePageComponent implements OnInit {
       categoryDetail: []
     }
   ]
+  maxPriceInDb = 100;
+
   ngOnInit(): void {
     this.getAllcategoryActive();
-
+    this.getAllProductActive();
     
 
     this.formSearch = this.formBuild.group({
-      search: [''],
-      price: [0]
+      search: [null],
+      minPrice: [0],
+      maxPrice: [0]
     })
   }
 
@@ -58,4 +66,33 @@ export class HomePageComponent implements OnInit {
     )
   }
 
+  getAllProductActive() {
+    this.productService.getAllProductActive().subscribe(
+      data => {
+        this.ListCategoryActive = data;
+        // Delete or add discount if discount > 0
+        let i = -1;
+        let maxPriceInDb = 0;
+        this.ListCategoryActive.forEach(e => {
+          i++;
+          if (e.price > maxPriceInDb) {
+            maxPriceInDb = e.price;
+            this.formSearch.controls.maxPrice.patchValue(maxPriceInDb);
+          }
+          else {
+            
+          }
+        });
+      }
+
+    )
+  }
+
+
+  onSearch(val) {
+    console.log(val);
+    
+    this.productService.setValueBySearch(val.search, val.minPrice, val.maxPrice);
+    this.rout.navigate(["/list-product-result"]);
+  }
 }

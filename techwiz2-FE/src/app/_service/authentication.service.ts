@@ -58,4 +58,8 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
+
+  UploadPhoto(val) {
+    return this.http.post(environment.apiUrl + 'customer/updateAvatar?id=' + val.customer_id, val)
+  }
 }

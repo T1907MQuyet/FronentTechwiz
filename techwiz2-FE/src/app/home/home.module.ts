@@ -9,7 +9,10 @@ import { FooterComponent } from './component/footer/footer.component';
 import { ListProductComponent } from './view/product/list-product/list-product.component';
 import { HomePageComponent } from './view/home-page/home-page.component';
 import { ListCategoryComponent } from './view/Category/list-category/list-category.component';
-import { ListProductByCategory } from './view/product/list-product/list-product-byCategory.component';
+import { ListProductByCategory } from './view/product/list-product/categoryCompoent/list-product-byCategory.component';
+import { ListProductResultComponent } from './view/product/list-product/categoryCompoent/list-product-result.component';
+import { ListProductMenuComponent } from './view/product/list-product/menuComponent/list-product-menu/list-product-menu.component';
+
 import { ProductDetailComponent } from './view/product/product-detail/product-detail.component';
 import { RestaurantComponent } from './view/home-page/restaurant/restaurant.component';
 import { OrderDetailComponent } from './view/order-detail/order-detail.component';
@@ -41,7 +44,10 @@ import { ContactComponent } from './view/contact/contact.component';
     OrdersByCustomerComponent,
     EditprofileComponent,
     AboutComponent,
-    ContactComponent],
+    ListProductResultComponent,
+    ListProductMenuComponent,
+    ContactComponent
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule,

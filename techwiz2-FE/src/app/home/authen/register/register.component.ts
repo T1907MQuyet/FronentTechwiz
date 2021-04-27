@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   formRegister: FormGroup;
+  alert = "Congratulations on successful account registration";
   ngOnInit(): void {
     // createForm
     this.formRegister = this.formBuilder.group({
@@ -46,6 +47,8 @@ export class RegisterComponent implements OnInit {
       this.authenticationService.register(data).subscribe(
         data => {
           this.error = '';
+          this.alert = "Congratulations on successful account registration";
+
           this.succesAlert = true;
           // setTimeout(() => {
           //   this.router.navigate(["/login"]);
@@ -54,7 +57,9 @@ export class RegisterComponent implements OnInit {
 
         err => {
           this.error = err.error.Errors;
-          this.succesAlert = false;
+          this.alert = "Account already exists";
+
+          this.succesAlert = true;
         }
 
       )

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home.component';
-import { ListProductByCategory } from './view/product/list-product/list-product-byCategory.component';
+import { ListProductByCategory } from './view/product/list-product/categoryCompoent/list-product-byCategory.component';
 import { HomePageComponent } from './view/home-page/home-page.component';
 import { ListProductComponent } from './view/product/list-product/list-product.component';
 import { ProductDetailComponent } from './view/product/product-detail/product-detail.component';
@@ -15,8 +15,10 @@ import { PasswordControllComponent } from './customer/password-controll/password
 import { OrdersByCustomerComponent } from './customer/orders-by-customer/orders-by-customer.component';
 import { AuthGuardGuard } from '../_helpers/auth.guard';
 import { CheckoutComponent } from './view/checkout/checkout.component';
-import {AboutComponent} from './view/about/about.component';
-import {ContactComponent} from './view/contact/contact.component';
+import { AboutComponent } from './view/about/about.component';
+import { ContactComponent } from './view/contact/contact.component';
+import { ListProductResultComponent } from './view/product/list-product/categoryCompoent/list-product-result.component';
+import { ListProductMenuComponent } from './view/product/list-product/menuComponent/list-product-menu/list-product-menu.component';
 
 const routes: Routes = [
   {
@@ -28,7 +30,16 @@ const routes: Routes = [
       path: 'list-product', component: ListProductComponent,
     },
     {
+      path: 'list-product-result', component: ListProductResultComponent,
+    },
+    {
       path: 'category/category-detail/id/:id', component: ListProductByCategory
+    },
+    {
+      path: 'list-product-menu', component: ListProductMenuComponent,
+    },
+    {
+      path: 'menu/menu-detail/id/:id', component: ListProductMenuComponent
     },
     {
       path: 'product-detail/id/:id', component: ProductDetailComponent
@@ -36,19 +47,19 @@ const routes: Routes = [
     {
       path: 'order', component: OrderDetailComponent
     },
-      {
-        canActivate: [AuthGuardGuard],
-        path: 'checkout', component: CheckoutComponent
-      },
+    {
+      canActivate: [AuthGuardGuard],
+      path: 'checkout', component: CheckoutComponent
+    },
     {
       path: 'login', component: LoginComponent
     },
-      {
-        path: 'about', component: AboutComponent
-      },
-      {
-        path: 'contact', component: ContactComponent
-      },
+    {
+      path: 'about', component: AboutComponent
+    },
+    {
+      path: 'contact', component: ContactComponent
+    },
     {
       path: 'register', component: RegisterComponent
     },

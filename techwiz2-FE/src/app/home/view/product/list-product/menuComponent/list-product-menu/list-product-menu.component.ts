@@ -1,63 +1,40 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MenuService } from 'src/app/_service/home/menu/menu.service';
 import { ProductService } from 'src/app/_service/home/product/product.service';
 
 @Component({
-  selector: 'app-list-product',
-  templateUrl: './list-product.component.html',
-  styleUrls: ['./list-product.component.css']
+  selector: 'app-list-product-menu',
+  templateUrl: './../../list-product.component.html',
+  styleUrls: ['./../../list-product.component.css']
 })
-export class ListProductComponent implements OnInit {
-
+export class ListProductMenuComponent implements OnInit {
   constructor(
-    private productService: ProductService,
-    private menuService: MenuService
+    private activatedRoute: ActivatedRoute,
+    private product: ProductService,
+    private menuService: MenuService,
+    private route: ActivatedRoute
+
   ) { }
-  isMenu = false;
-  ListCategoryActive;
+  isMenu = true;
+  ListCategoryActive = [];
+  err = '';
   listMenuActive;
   ListmenuDetailActive = [];
   listMenuandMenuDetail = [];
-  err = '';
   ngOnInit(): void {
-    this.productService.getAllProductActive().subscribe(
-      data => {
-        this.ListCategoryActive = data;
-        // Delete or add discount if discount > 0
-        let i = -1;
-        this.ListCategoryActive.forEach(e => {
-          i++;
-          if (e.discount > 0) {
-            console.log(i);
-
-            this.ListCategoryActive[i].price = e.price *= ((100 - e.discount) / 100)
-          }
-          else {
-            delete e.discount;
-            this.ListCategoryActive[i] = e;
-          }
-        });
-      }
-
-    )
-
-
+    // this.getAllproductByMenuID(this.activatedRoute.snapshot.paramMap.get('id'));
     this.getAllMenuActiveAndMenuDetail();
+    this.Get_product_menu_detail();
   }
 
   getAllMenuActiveAndMenuDetail() {
     this.menuService.getAllMenu().subscribe(
-      data => {
+      data => {        
         this.listMenuActive = data;
-        console.log(this.listMenuActive);
-        
         for (let i = 0; i < this.listMenuActive.length; i++) {
-          console.log(this.listMenuActive[i]);
-
           this.menuService.getAllmenuDetailBymenuID(this.listMenuActive[i].menu_id).subscribe(
             data => {
-              console.log(data);
-
               // this.ListCategoryDetailActive[i] = data;
               this.ListmenuDetailActive[i] = data;
               this.listMenuandMenuDetail.push(
@@ -73,6 +50,25 @@ export class ListProductComponent implements OnInit {
       }
 
 
+    )
+  }
+  contain;  
+  Get_product_menu_detail() {
+    this.menuService.product_menu_detail(this.route.snapshot.paramMap.get("id")).subscribe(
+      data => {
+        this.contain = data;
+        this.contain.forEach(e => {
+          console.log(e.product_id);
+          
+          this.product.getProductById(e.product_id).subscribe(
+            data => {
+              this.ListCategoryActive.push(data)
+            }
+          )
+        });
+        
+
+      }
     )
   }
 }

@@ -1,28 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CategoryService } from 'src/app/_service/home/category/category.service';
 import { MenuService } from 'src/app/_service/home/menu/menu.service';
 import { ProductService } from 'src/app/_service/home/product/product.service';
 
 @Component({
-  selector: 'app-list-product',
-  templateUrl: './list-product.component.html',
-  styleUrls: ['./list-product.component.css']
+  selector: 'app-list-category-detail',
+  templateUrl: './../list-product.component.html',
+  styleUrls: ['./../list-product.component.css']
 })
-export class ListProductComponent implements OnInit {
+export class ListProductByCategory implements OnInit {
 
   constructor(
-    private productService: ProductService,
+    private category: CategoryService,
+    private activatedRoute: ActivatedRoute,
+    private product: ProductService,
     private menuService: MenuService
   ) { }
   isMenu = false;
   ListCategoryActive;
+  err = '';
   listMenuActive;
   ListmenuDetailActive = [];
   listMenuandMenuDetail = [];
-  err = '';
   ngOnInit(): void {
-    this.productService.getAllProductActive().subscribe(
+    this.getAllcategoryDetailByCategoryID(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.getAllMenuActiveAndMenuDetail();
+  }
+  getAllcategoryDetailByCategoryID(id) {
+    this.product.getAllProductByCategoryDetails(id).subscribe(
       data => {
-        this.ListCategoryActive = data;
+        const contain = data;
+
+        this.ListCategoryActive = contain;
+
         // Delete or add discount if discount > 0
         let i = -1;
         this.ListCategoryActive.forEach(e => {
@@ -38,37 +49,37 @@ export class ListProductComponent implements OnInit {
           }
         });
       }
-
     )
-
-
-    this.getAllMenuActiveAndMenuDetail();
   }
 
   getAllMenuActiveAndMenuDetail() {
-    this.menuService.getAllMenu().subscribe(
+    this.category.getAllcategoryActive().subscribe(
       data => {
         this.listMenuActive = data;
         console.log(this.listMenuActive);
-        
+
         for (let i = 0; i < this.listMenuActive.length; i++) {
           console.log(this.listMenuActive[i]);
 
-          this.menuService.getAllmenuDetailBymenuID(this.listMenuActive[i].menu_id).subscribe(
-            data => {
-              console.log(data);
-
+          this.category.getAllcategoryDetailByCategoryID(this.listMenuActive[i].cate_id).subscribe(
+            data => {              
               // this.ListCategoryDetailActive[i] = data;
               this.ListmenuDetailActive[i] = data;
+              console.log(data);
+              
               this.listMenuandMenuDetail.push(
                 {
-                  menuName: this.listMenuActive[i].menu_name,
+                  menuName: this.listMenuActive[i].cate_name,
                   menuDetail: this.ListmenuDetailActive[i]
                 }
               )
+              console.log(this.listMenuandMenuDetail);
+
             }
           )
         }
+        console.log(this.listMenuandMenuDetail);
+        
 
       }
 

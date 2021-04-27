@@ -119,9 +119,6 @@ export class CheckoutComponent implements OnInit {
       console.log(e);
       return false;
     }
-
-
-
   }
 
 

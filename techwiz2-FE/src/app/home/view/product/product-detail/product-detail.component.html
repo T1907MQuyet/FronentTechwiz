@@ -43,7 +43,7 @@
                                 </svg>
                             </span>
                         </button>
-                        <input type="number" #quantityInput [(ngModel)]="quantity" (blur)="abs(quantityInput.value)">
+                        <input type="number" #quantityInput [(ngModel)]="quantity" (blur)="abs(quantityInput.value)" style="margin: 0; width: 65px;">
                         <button type="button" class="btn btn-default" (click)="plusOrMinus(false, quantityInput.value)">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash"
@@ -53,8 +53,6 @@
                         </span>
                         </button>
                     </div>
-                    <a  class="btn btn-success left-space-sm pull-right">Buy
-                        Now</a>
                     <a class="btn btn-default pull-right" (click)="AddtoCart()">Add to Cart</a>
                 </div>
             </div>

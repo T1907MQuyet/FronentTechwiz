@@ -14,92 +14,40 @@
         <div class="row">
             <aside class="col-md-3">
                 <div class="side-widget">
-                    <h5>Our Food</h5>
-                    <ul class="shop-cat">
-                        <li><a routerLinkActive="active" routerLink="/category/id/">Cakes <i
-                                    class="fa fa-caret-right"></i></a>
+                    <h5>{{ isMenu ? 'Our Menu' : 'Our Category'}}</h5>
+                    <ul class="shop-cat" *ngIf="isMenu == true">
+                        <li *ngFor="let menu of listMenuandMenuDetail">
+                            <a>
+                                {{menu.menuName}}
+                            </a>
+                            <ul class="">
+                                <li *ngFor="let menuDetail of menu.menuDetail">
+                                    <a href="/menu/menu-detail/id/{{ menuDetail.menu_detail_id }}">
+                                        {{menuDetail.menu_detail_name}} </a>
+                                </li>
+                            </ul>
                         </li>
-                        <li><a routerLinkActive="active" routerLink="/category/id/">Almonds <i
-                                    class="fa fa-caret-right"></i></a>
+                     </ul>
+                    <ul class="shop-cat" *ngIf="isMenu != true">
+                        <li *ngFor="let menu of listMenuandMenuDetail">
+                            <a>
+                                {{menu.menuName}}</a>
+                            <ul class="">
+                                <li *ngFor="let menuDetail of menu.menuDetail">
+                                    <a href="/category/category-detail/id/{{ menuDetail.cate_detail_id }}">
+                                        {{menuDetail.cate_detail_name}} </a>
+                                </li>
+                            </ul>
                         </li>
-                        <li><a routerLinkActive="active" routerLink="/category/id/">Furniture <i
-                                    class="fa fa-caret-right"></i></a></li>
-                        <li><a routerLinkActive="active" routerLink="/category/id/">Amaranth <i
-                                    class="fa fa-caret-right"></i></a>
-                        </li>
-                        <li><a routerLinkActive="active" routerLink="/category/id/">Broad Beans <i
-                                    class="fa fa-caret-right"></i></a></li>
-                        <li><a routerLinkActive="active" routerLink="/category/id/">Coriander <i
-                                    class="fa fa-caret-right"></i></a></li>
                     </ul>
                 </div>
-                <!-- <div class="side-widget">
-                    <h5>New Arrivals</h5>
-                    <ul class="recent-products">
-                        <li>
-                            <img src="img/shop/1/1.png" alt="" />
-                            <div class="rpp-info">
-                                <a routerLinkActive="active" routerLink="/category/id/">Lorem ipsum is simp</a>
-                                <div class="rc-ratings">
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <span>$100</span>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="img/shop/1/2.png" alt="" />
-                            <div class="rpp-info">
-                                <a routerLinkActive="active" routerLink="/category/id/">Lorem ipsum is simp</a>
-                                <div class="rc-ratings">
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <span>$100</span>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="img/shop/1/3.png" alt="" />
-                            <div class="rpp-info">
-                                <a routerLinkActive="active" routerLink="/category/id/">Lorem ipsum is simp</a>
-                                <div class="rc-ratings">
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <span>$100</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div> -->
             </aside>
             <div class="col-md-9">
-                <div class="shop-grid">
-                    <select>
-                        <option>Default Sorting</option>
-                        <option>Cakes</option>
-                        <option>Breads</option>
-                        <option>Fries</option>
-                        <option>Pizza</option>
-                    </select>
-                    <div class="sg-list">
-                        <a routerLinkActive="active" routerLink="/"><i
-                                class="fa fa-th-large"></i></a>
-                        <a routerLinkActive="active" routerLink="/s"><i
-                                class="fa fa-reorder"></i></a>
-                    </div>
-                    <span>Showing 1-9 of 80 Results</span>
-                </div>
                 <div class="shop-products">
                     <div class="row">
+                        <h2 class="text-danger" *ngIf="err != ''">
+                            {{ err }}
+                        </h2>
                         <div class="col-md-4 col-sm-6" *ngFor="let product of ListCategoryActive">
                             <div class="product-info">
                                 <div class="product-img">
@@ -110,202 +58,23 @@
                                     </div>
                                     <!-- <img [src]="'https://res.cloudinary.com/alpha1111/image/upload/v1619098856/zshaogd4tuxxuv48admb.jpg'"
                                         [alt]="product.image" /> -->
-                                    <img [src]="product.image"
-                                        [alt]="product.image" />
+                                    <img [src]="product.image" [alt]="product.image" />
 
                                 </div>
-                                <h4><a routerLinkActive="active" routerLink="/product-detail/id/{{ product.product_id }}">{{ product.product_name }}</a></h4>
-                               
-                                <div class="product-price d-block ssp">{{ product.price | currency:'$' }} <span>{{ product.discount | currency:'$' }}</span></div>
-                                <div class="shop-meta">
-                                    <a routerLinkActive="active" routerLink="/"
-                                        class="pull-left"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a routerLinkActive="active" routerLink="/"
-                                        class="pull-right"><i class="fa fa-heart-o"></i>
-                                        Wishlist</a>
+                                <h4><a routerLinkActive="active"
+                                        routerLink="/product-detail/id/{{ product.product_id }}">{{ product.product_name
+                                        }}</a></h4>
+
+                                <div class="product-price d-block ssp">{{ product.price | currency:'$' }} <span>{{
+                                        product.discount | currency:'$' }}</span></div>
+                                <div class="shop-meta text-center" *ngIf="isMenu == true">
+                                    <a routerLinkActive="active" routerLink="/" class=""><i
+                                            class="fa fa-shopping-cart"></i> Add to cart</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="col-md-4 col-sm-6">
-                            <div class="product-info">
-                                <div class="product-img">
-                                    <img src="/assets/Home/img/bg5.png" alt="" />
-                                </div>
-                                <h4><a routerLinkActive="active" routerLink="/product/detail/id/">Food Name</a></h4>
-                                <div class="rc-ratings">
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="product-price">$100</div>
-                                <div class="shop-meta">
-                                    <a routerLinkActive="active" routerLink="/shop_single_left.html" class="pull-left"><i
-                                            class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a routerLinkActive="active" routerLink="/shop_right_sidebar.html" class="pull-right"><i class="fa fa-heart-o"></i>
-                                        Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="product-info">
-                                <div class="product-img">
-                                    <a class="" routerLink="/product/detail/id/"><img src="/assets/Home/img/bg5.png" alt="" /></a>
-                                    
-                                </div>
-                                <h4><a routerLinkActive="active" routerLink="/product/detail/id/">Food Name</a></h4>
-                                <div class="rc-ratings">
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="product-price">$100</div>
-                                <div class="shop-meta">
-                                    <a routerLinkActive="active" routerLink="/shop_single_left.html" class="pull-left"><i
-                                            class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a routerLinkActive="active" routerLink="/shop_right_sidebar.html" class="pull-right"><i class="fa fa-heart-o"></i>
-                                        Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="product-info">
-                                <div class="product-img">
-                                    <img src="img/shop/4.png" alt="" />
-                                </div>
-                                <h4><a routerLinkActive="active" routerLink="/product/detail/id/">Food Name</a></h4>
-                                <div class="rc-ratings">
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="product-price">$100</div>
-                                <div class="shop-meta">
-                                    <a routerLinkActive="active" routerLink="/shop_single_left.html" class="pull-left"><i
-                                            class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a routerLinkActive="active" routerLink="/shop_right_sidebar.html" class="pull-right"><i class="fa fa-heart-o"></i>
-                                        Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="product-info">
-                                <div class="product-img">
-                                    <img src="img/shop/5.png" alt="" />
-                                </div>
-                                <h4><a routerLinkActive="active" routerLink="/product/detail/id/">Food Name</a></h4>
-                                <div class="rc-ratings">
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="product-price">$100</div>
-                                <div class="shop-meta">
-                                    <a routerLinkActive="active" routerLink="/shop_single_left.html" class="pull-left"><i
-                                            class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a routerLinkActive="active" routerLink="/shop_right_sidebar.html" class="pull-right"><i class="fa fa-heart-o"></i>
-                                        Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="product-info">
-                                <div class="product-img">
-                                    <img src="img/shop/6.png" alt="" />
-                                </div>
-                                <h4><a routerLinkActive="active" routerLink="/product/detail/id/">Food Name</a></h4>
-                                <div class="rc-ratings">
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="product-price">$100</div>
-                                <div class="shop-meta">
-                                    <a routerLinkActive="active" routerLink="/shop_single_left.html" class="pull-left"><i
-                                            class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a routerLinkActive="active" routerLink="/shop_right_sidebar.html" class="pull-right"><i class="fa fa-heart-o"></i>
-                                        Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="product-info">
-                                <div class="product-img">
-                                    <img src="img/shop/7.png" alt="" />
-                                </div>
-                                <h4><a routerLinkActive="active" routerLink="/product/detail/id/">Food Name</a></h4>
-                                <div class="rc-ratings">
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="product-price">$100</div>
-                                <div class="shop-meta">
-                                    <a routerLinkActive="active" routerLink="/shop_single_left.html" class="pull-left"><i
-                                            class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a routerLinkActive="active" routerLink="/shop_right_sidebar.html" class="pull-right"><i class="fa fa-heart-o"></i>
-                                        Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="product-info">
-                                <div class="product-img">
-                                    <img src="img/shop/8.png" alt="" />
-                                </div>
-                                <h4><a routerLinkActive="active" routerLink="/product/detail/id/">Food Name</a></h4>
-                                <div class="rc-ratings">
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="product-price">$100</div>
-                                <div class="shop-meta">
-                                    <a routerLinkActive="active" routerLink="/shop_single_left.html" class="pull-left"><i
-                                            class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a routerLinkActive="active" routerLink="/shop_right_sidebar.html" class="pull-right"><i class="fa fa-heart-o"></i>
-                                        Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="product-info">
-                                <div class="product-img">
-                                    <img src="img/shop/9.png" alt="" />
-                                </div>
-                                <h4><a routerLinkActive="active" routerLink="/product/detail/id/">Food Name</a></h4>
-                                <div class="rc-ratings">
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star active"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="product-price">$100</div>
-                                <div class="shop-meta">
-                                    <a routerLinkActive="active" routerLink="/shop_single_left.html" class="pull-left"><i
-                                            class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a routerLinkActive="active" routerLink="/shop_right_sidebar.html" class="pull-right"><i class="fa fa-heart-o"></i>
-                                        Wishlist</a>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
-                <a href="/" class="btn btn-default load-more">Load more</a>
             </div>
         </div>
     </div>

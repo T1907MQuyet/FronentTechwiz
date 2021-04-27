@@ -7,6 +7,7 @@ import { AuthenticationService } from 'src/app/_service/Authentication.Service';
 import { User } from 'src/app/_model/User';
 import { BehaviorSubject } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MenuService } from 'src/app/_service/home/menu/menu.service';
 
 @Component({
   selector: 'app-header',
@@ -20,18 +21,22 @@ export class HeaderComponent implements OnInit {
     private orderService: OrderService,
     private authentication: AuthenticationService,
     private router: Router,
-    private formBuild: FormBuilder
+    private formBuild: FormBuilder,
+    private menuService: MenuService
   ) { }
 
+  isLogin = false;
   ListCategoryActive;
   ListCategoryDetailActive = [];
-  isLogin = false;
-
   listCategoryandCateDetail = [];
 
+  ListmenuActive;
+  ListmenuDetailActive = [];
+  listmenuandCateDetail = [];
   userInfor;
   ngOnInit(): void {
     this.getAllcategoryActive();
+    this.getAllMenuActiveAndMenuDetail();
     let checkLogin = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser'))).value;
     
     if (checkLogin) {
@@ -39,8 +44,7 @@ export class HeaderComponent implements OnInit {
       this.authentication.getUserById(idUser).subscribe(
         data => {
           this.isLogin = true;
-          let contain = data;
-
+          let contain = data;          
           this.userInfor = contain;
         }
       )
@@ -73,6 +77,32 @@ export class HeaderComponent implements OnInit {
     )
   }
 
+  getAllMenuActiveAndMenuDetail() {
+    this.menuService.getAllMenu().subscribe(
+      data => {
+        this.ListmenuActive = data;
+
+        for (let i = 0; i < this.ListmenuActive.length; i++) {
+
+          this.menuService.getAllmenuDetailBymenuID(this.ListmenuActive[i].menu_id).subscribe(
+            data => {
+              // this.ListCategoryDetailActive[i] = data;
+              this.ListmenuDetailActive[i] = data;
+              this.listmenuandCateDetail.push(
+                {
+                  menuName: this.ListmenuActive[i].menu_name,
+                  menuDetail: this.ListmenuDetailActive[i]
+                }
+              )
+            }
+          )
+        }
+
+      }
+
+
+    )
+  }
 
   logout() {
     this.authentication.logout();

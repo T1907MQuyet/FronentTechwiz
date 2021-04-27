@@ -14,11 +14,34 @@ export class ProductService {
     return this.http.get(environment.apiUrl + "product");
   }
 
+  getProductById(id) {
+    return this.http.get(environment.apiUrl + "product/" + id);
+  }
   getAllProductByCategoryDetails(id) {
     return this.http.get(environment.apiUrl + "product/category?cate_id=" + id);
   }
 
+  getAllProductBymenuDetails(id) {
+    return this.http.get(environment.apiUrl + "product/category?cate_id=" + id);
+  }
   getProductDetail(id) {
     return this.http.get(environment.apiUrl + "product/" + id);
+  }
+
+  containValueSearch = {
+    name: '',
+    minPrice: 0,
+    maxPrice: 0
+  }
+  setValueBySearch(name, minPrice, maxPrice) {
+    return this.containValueSearch = {
+      name: name,
+      minPrice: minPrice,
+      maxPrice: maxPrice
+    }
+  }
+
+  getValueBySearch() {
+    return this.containValueSearch;
   }
 }

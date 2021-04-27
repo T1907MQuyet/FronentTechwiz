@@ -7,27 +7,27 @@
         </div>
         <div class="box-search">
             <div class="col-6">
-                <form [formGroup]="formSearch" class="d-flex form-search">
+                <form [formGroup]="formSearch" class="d-flex form-search" (ngSubmit)="onSearch(formSearch.value)">
                     <div class="box-input w-100">
                         <div class="search-text w-100">
                             <p>What do you want to search?</p>
 
                             <div class="name-search d-flex">
-                                <input type="text" class="form-control m-0 text--search" placeholder="Search by name" />
+                                <input type="text" class="form-control m-0 text--search" placeholder="Search by name" formControlName="search" />
                                 <button type="submit" class="btn btn--search">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
 
                         </div>
-                        <div class="search-range d-flex">
+                        <div class="search-range d-block" style="width: 50%;">
                             <div class="price-min">
                                 <label for="">Min price</label>
-                                <input type="range" class="form-control search--ranger">
+                                <input type="range" class="form-control search--ranger" value="0" formControlName="minPrice">
                             </div>
                             <div class="price-max">
                                 <label for="">Max price</label>
-                                <input type="range" class="form-control search--ranger">
+                                <input type="range" class="form-control search--ranger" max="{{ maxPriceInDb }}" formControlName="maxPrice">
                             </div>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
     </div>
 </section>
 
-<section class="menu">
+<!-- <section class="menu">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -229,4 +229,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->

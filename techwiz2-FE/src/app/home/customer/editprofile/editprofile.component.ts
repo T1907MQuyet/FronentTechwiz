@@ -25,7 +25,7 @@ export class EditprofileComponent implements OnInit {
   isLogin = false;
 
   listCategoryandCateDetail = [];
-
+  PhotoFilePath;
   userInfor;
   ngOnInit(): void {
     let idUser = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser'))).value.customer_id;
@@ -72,7 +72,21 @@ export class EditprofileComponent implements OnInit {
 
   }
 
+  uploadPhoto(event) {
+    var file = event.target.files[0];
+    const formData: FormData = new FormData();
+    formData.append('uploadedFile', file, file.name);
+    if (event.target.files) { // Check File true : false
+      var reader = new FileReader(); // DOM
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event: any) => {
+        this.PhotoFilePath = event.target.result;
+      }
+    }
 
+    this.authentication.UploadPhoto(formData).subscribe((data: any) => {
+    })
+  }
 
   GetDataEditorAdd() {
     this.formUserUpgrade.controls.customer_id.patchValue(this.userInfor.customer_id);
