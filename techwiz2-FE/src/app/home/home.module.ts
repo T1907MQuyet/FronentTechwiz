@@ -20,6 +20,8 @@ import { ProfileControllComponent } from './customer/profile-controll/profile-co
 import { PasswordControllComponent } from './customer/password-controll/password-controll.component';
 import { OrdersByCustomerComponent } from './customer/orders-by-customer/orders-by-customer.component';
 import { EditprofileComponent } from './customer/editprofile/editprofile.component';
+import { AboutComponent } from './view/about/about.component';
+import { ContactComponent } from './view/contact/contact.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { EditprofileComponent } from './customer/editprofile/editprofile.compone
     ProfileControllComponent,
     PasswordControllComponent,
     OrdersByCustomerComponent,
-    EditprofileComponent],
+    EditprofileComponent,
+    AboutComponent,
+    ContactComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

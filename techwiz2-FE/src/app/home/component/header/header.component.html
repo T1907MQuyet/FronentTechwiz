@@ -11,18 +11,22 @@
           <div class="site-nav-dropdown_inner grid__item menubar-section">
             <div class="menu-tool">
               <a class="navbar-brand" routerLink="home">
-                <img src="/assets/Home/img/nav-logo.png" alt="nav-logo">
+                <img src="/assets/Home/img/5141131747_645e3eb2-82d8-4c92-be9a-7a813caf1f4e.png" style="height: 40px" alt="nav-logo">
               </a>
               <div class="d-flex justify-content-around">
                 <ul class="site-nav m-0 nav-list">
                   <li class=" ">
                     <a routerLink="home" class="colomenu">
-                      Home
+                      <span>
+                        Home
+                      </span>
                     </a>
                   </li>
                   <li class=" dropdown  mega-menu ">
                     <a routerLink="list-product" class="colomenu">
-                      Shop
+                      <span>
+                        Shop
+                      </span>
                     </a>
 
                     <div class="site-nav-dropdown">
@@ -52,23 +56,20 @@
 
                           <div class="col-left col-sm-6">
                             <a href="#" title="">
-                              <img
-                                src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-1_2000x0380.jpg?v=1533295368"
-                                alt="" />
+                              <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-1_2000x0380.jpg?v=1533295368"
+                                   alt="" />
                             </a>
                             <a href="#" title="">
-                              <img
-                                src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-2_2000xc380.jpg?v=1533295376"
-                                alt="" />
+                              <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-2_2000xc380.jpg?v=1533295376"
+                                   alt="" />
                             </a>
                           </div>
 
 
                           <div class="col-right col-sm-6">
                             <a href="#" title="">
-                              <img
-                                src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-3_2000xe5de.jpg?v=1533295383"
-                                alt="" />
+                              <img src="assets/cdn.shopify.com/s/files/1/0066/4354/8223/files/menu-3-3_2000xe5de.jpg?v=1533295383"
+                                   alt="" />
                             </a>
                           </div>
 
@@ -79,20 +80,47 @@
                       </div>
                     </div>
                   </li>
-                  <li>
-                    <a routerLinkActive="active" routerLink="/" class="colomenu">Contact</a>
-                  </li>
+                  <li class="  dropdown">
+                    <a class="menu__moblie" href="pages/about-page.html" class="colomenu">
+                      <span>
+                        Page
+                      </span>
+                    </a>
+
+
+                    <ul class="site-nav-dropdown">
+
+                      <li>
+                        <a href="pages/about-page.html" class="" routerLinkActive="active" routerLink="/about">
+                          <span>
+                            About
+                          </span>
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="pages/contact-us.html" class=""routerLinkActive="active" routerLink="/contact">
+                          <span>
+                            Contact
+                          </span>
+
+                        </a>
+                        <ul class="site-nav-dropdown">
+
+                        </ul>
+                      </li>
+                    </ul>
                 </ul>
                 <ul class="site-nav m-0">
                   <li class="dropdown" *ngIf="isLogin == false">
                     <a class="css-pointer dropdown-toggle d-inline colomenu not" routerLinkActive="active"
-                      routerLink="/login">
+                       routerLink="/login">
                       Login
                     </a>
                   </li>
                   <li class="dropdown" *ngIf="isLogin == false">
                     <a class="css-pointer dropdown-toggle d-inline colomenu not" routerLinkActive="active"
-                      routerLink="/register">
+                       routerLink="/register">
                       register
                     </a>
                   </li>

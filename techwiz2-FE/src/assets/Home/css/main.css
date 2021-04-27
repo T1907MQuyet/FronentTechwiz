@@ -40,13 +40,13 @@ small {
   text-align: center;
   margin: 10px 0 15px;
 }
-.white {
+/*.white {
   color: #fff;
-}
-.white .small,
+}*/
+/*.white .small,
 .white small {
   color: #eee;
-}
+}*/
 .black {
   color: #4b4741;
 }
@@ -68,10 +68,10 @@ p {
   color: #828281;
   font-size: 22px;
 }
-a,
+/*a,
 a:hover {
   text-decoration: none;
-}
+}*/
 html {
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
