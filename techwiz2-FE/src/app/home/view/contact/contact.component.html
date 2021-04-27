@@ -1,4 +1,3 @@
-
 <section class="page_header">
   <div class="container">
     <div class="row">
@@ -27,9 +26,8 @@
           <div class="footer-address contact-info">
             <p><i class="fa fa-map-marker"></i>8 Ton That Thuyet,My Dinh ,Nam Tu Liem, Ha Noi,Viet Nam</p>
             <p><i class="fa fa-phone"></i>Phone: 0822672389</p>
-            <p><i class="fa fa-envelope-o"></i><a href="assets/Home/cdn-cgi/l/email-protection"
-                                                  class="__cf_email__"
-                                                  data-cfemail="790a0c0909160b0d390b1c0a0d180c0b18170d571a1614">justbuy@gmail.com</a>
+            <p><i class="fa fa-envelope-o"></i><a href="assets/Home/cdn-cgi/l/email-protection" class="__cf_email__"
+                data-cfemail="790a0c0909160b0d390b1c0a0d180c0b18170d571a1614">justbuy@gmail.com</a>
             </p>
           </div>
           <br>
@@ -39,37 +37,86 @@
             <p>11:00 am to 11:30 pm on Weekends</p>
           </div>
           <br>
-          <h3 class="text-left no-margin-top">Follow Us</h3>
-          <div class="contact-social">
-            <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
-            <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
-            <a href="https://www.dribbble.com"><i class="fa fa-dribbble"></i></a>
-            <a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a>
-          </div>
         </div>
         <div class="col-md-6">
-          <form class="contact-form" id="contactForm" action="php/contact.php" method="post">
+          <form class="contact-form" id="contactForm" [formGroup]="formFeedback"
+            (ngSubmit)="onSubmit(formFeedback.value)">
             <div class="form-group">
-              <input class="form-control" name="name" id="name" placeholder="Full Name"
-                     type="text" required="required"/>
+              <input class="form-control" formControlName="fullname" placeholder="Full Name" type="text"
+                required="required" />
+                <ul class="list-alert--err text-capitalize list-style-none p-0 text-danger">
+                  <li *ngIf="formFeedbackF.fullname.errors">
+                    <span *ngIf="formFeedbackF.fullname.errors.required && clickisDis">
+                      name is requied
+                    </span>
+                  </li>
+                
+                  <li *ngIf="formFeedbackF.fullname.errors">
+                    <span *ngIf="formFeedbackF.fullname.errors.pattern && formFeedbackF.fullname.touched">
+                      can only contain lowercase characters from a-z or A-X
+                    </span>
+                  </li>
+                  <li *ngIf="formFeedbackF.fullname.errors && formFeedbackF.fullname.touched">
+                    <span *ngIf="formFeedbackF.fullname.value.length < 5">
+                      Please enter at least 5 characters
+                    </span>
+                  </li>
+                </ul>
             </div>
             <div class="form-group">
-              <input class="form-control" type="email" name="email" id="email"
-                     placeholder="Email Address" required="required"/>
+              <input class="form-control" formControlName="email" placeholder="eg@gmail.com" type="email"
+                required="required" />
+                <ul class="list-alert--err text-capitalize list-style-none p-0 text-danger">
+                  <li *ngIf="formFeedbackF.email.errors">
+                    <span *ngIf="formFeedbackF.email.errors.required && clickisDis">
+                      Email is requied
+                    </span>
+                  </li>
+                  <li *ngIf="formFeedbackF.email.errors">
+                    <span *ngIf="formFeedbackF.email.errors.email && formFeedbackF.email.touched">
+                      Please enter a standard email address, for example:
+                      123@gmail.com
+                    </span>
+                  </li>
+                </ul>
             </div>
             <div class="form-group">
-              <input class="form-control" placeholder="Subject" type="text" id="subject"
-                     name="subject">
+              <input class="form-control" formControlName="phonenumber" placeholder="0977010310" type="text"
+                required="required" />
+                <ul class="list-alert--err text-capitalize list-style-none p-0 text-danger">
+                  <li *ngIf="formFeedbackF.phonenumber.errors">
+                    <span *ngIf="formFeedbackF.phonenumber.errors.required && clickisDis">
+                      phonenumber is requied
+                    </span>
+                  </li>
+                  <li *ngIf="formFeedbackF.phonenumber.errors && formFeedbackF.phonenumber.touched">
+                    <span *ngIf="formFeedbackF.phonenumber.value.length < 10">
+                      Please enter at least 10 characters
+                    </span>
+                  </li>
+                  <li *ngIf="formFeedbackF.phonenumber.errors">
+                    <span *ngIf="formFeedbackF.phonenumber.errors.pattern && formFeedbackF.phonenumber.touched">
+                      Please enter a standard phonenumber address, for example:
+                      0123456789
+                    </span>
+                  </li>
+                </ul>
             </div>
             <div class="form-group">
-                                    <textarea class="form-control" name="message" id="message" placeholder="Message"
-                                              rows="5"></textarea>
+              <textarea class="form-control" formControlName="content" name="message" id="message" placeholder="Message"
+                rows="5"></textarea>
+                <div class="text-dangers" *ngIf="formFeedbackF.content.errors">
+                  <span *ngIf="formFeedbackF.content.errors.required && clickisDis">
+                    content is requied
+                  </span>
+                </div>
             </div>
-            <button class="btn btn-default btn-lg btn-block" id="js-contact-btn">Send message
+            <button class="btn btn-default btn-lg btn-block" id="js-contact-btn" type="submit">
+              Send message
             </button>
           </form>
           <div id="js-contact-result" data-success-msg="Form submitted successfully."
-               data-error-msg="Oops. Something went wrong."></div>
+            data-error-msg="Oops. Something went wrong."></div>
         </div>
       </div>
     </div>
@@ -85,3 +132,16 @@
   </div>
 </section>
 
+
+<div class="modal" id="exampleModalCenter" [class]="alert ? 'show': 'fade'" style="width: 50%; margin: auto;">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Feedback success</h5>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary" routerLink="/login">Cancal</a>
+      </div>
+    </div>
+  </div>
+</div>

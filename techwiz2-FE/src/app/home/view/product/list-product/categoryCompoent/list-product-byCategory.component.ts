@@ -18,7 +18,8 @@ export class ListProductByCategory implements OnInit {
     private menuService: MenuService
   ) { }
   isMenu = false;
-  ListCategoryActive;
+  contain;
+  ListCategoryActive = [];
   err = '';
   listMenuActive;
   ListmenuDetailActive = [];
@@ -30,13 +31,16 @@ export class ListProductByCategory implements OnInit {
   getAllcategoryDetailByCategoryID(id) {
     this.product.getAllProductByCategoryDetails(id).subscribe(
       data => {
-        const contain = data;
+        this.contain = data;
 
-        this.ListCategoryActive = contain;
+        this.contain.forEach(e => {
+          this.ListCategoryActive.push(e)
+        });
+        
 
         // Delete or add discount if discount > 0
         let i = -1;
-        this.ListCategoryActive.forEach(e => {
+        this.contain.forEach(e => {
           i++;
           if (e.discount > 0) {
             console.log(i);

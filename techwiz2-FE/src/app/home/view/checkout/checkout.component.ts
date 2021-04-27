@@ -58,6 +58,8 @@ export class CheckoutComponent implements OnInit {
   clickisDis = false;
   // (1)
   createOrder(val) {
+    console.log(val);
+
     // (2)    
     if (this.formCheckout.status != 'INVALID') {
       let data = {
@@ -68,10 +70,8 @@ export class CheckoutComponent implements OnInit {
         "status": 1,
         "payment": val.payment,
         "total_price": this.totalPrice,
-
-        "customer": {
-          "customer_id": this.authen.currentUserValue.customer_id
-        }
+        "phone_number": this.authen.currentUserValue.phonenumber,
+        "customer_id": this.authen.currentUserValue.customer_id
       }
 
       this.orderService.CreateOrderInDb(data).subscribe(

@@ -30,8 +30,8 @@
                      </ul>
                     <ul class="shop-cat" *ngIf="isMenu != true">
                         <li *ngFor="let menu of listMenuandMenuDetail">
-                            <a>
-                                {{menu.menuName}}</a>
+                            <span>
+                                {{menu.menuName}}</span>
                             <ul class="">
                                 <li *ngFor="let menuDetail of menu.menuDetail">
                                     <a href="/category/category-detail/id/{{ menuDetail.cate_detail_id }}">

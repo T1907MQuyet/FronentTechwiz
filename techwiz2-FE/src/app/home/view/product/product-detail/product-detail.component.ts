@@ -16,7 +16,7 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private orderSv: OrderService
+    private orderSv: OrderService,
   ) { }
 
   contain;
@@ -37,8 +37,7 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProductDetail(this.activatedRoute.snapshot.paramMap.get("id")).subscribe(
       data => {
-        this.contain = data;
-        
+        this.contain = data;        
         this.inforProduct = {
           "product_id": this.contain.product_id,
           "product_name": this.contain.product_name,
@@ -58,8 +57,10 @@ export class ProductDetailComponent implements OnInit {
           delete this.inforProduct.discount;
         }
 
+        this.getAllProductOrder();
       }
     )
+
 
   }
 
@@ -138,4 +139,57 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
+  containProductOrder;
+  ListCategoryActive = [];
+  getAllProductOrder() {    
+    this.productService.getAllProductByCategoryDetails(this.contain.category_detail.cate_detail_id).subscribe(
+      data => {
+        this.containProductOrder = data;
+        this.containProductOrder.forEach(e => {
+          this.ListCategoryActive.push(e)
+        });
+      }
+    )
+  }
+
+  AddtoCartByListproduct(val) {
+    // if (this.isAdd == false) {
+    //   // order.push(
+    //   let orderDetail = {
+    //     "order_id": this.inforProduct.product_id,
+
+    //     "product_id": this.inforProduct.product_id,
+    //     "product_name": this.inforProduct.product_name,
+    //     "image": this.inforProduct.image,
+    //     "price": this.inforProduct.price,
+    //     "discount": this.inforProduct.discount,
+
+    //     "order_count": this.quantity,
+    //   }
+    //   this.showAlert = true;
+    //   this.offsau2s();
+    //   console.log(orderDetail);
+
+    //   this.orderSv.pushOrder(orderDetail);
+    //   this.isAdd = true;
+    // }
+
+    // else {
+    //   // this.setValueForOrderInListOrderLocal();
+    //   console.log(order);
+
+    //   order.forEach(e => {
+    //     console.log(e);
+
+    //     if (e.order_id == this.inforProduct.product_id) {
+    //       this.showAlert = !this.showAlert;
+    //       e.order_count = this.quantity + e.order_count;
+    //       this.orderSv.upgradeOrderInLocal(e);
+
+    //       this.offsau2s();
+
+    //     }
+    //   })
+    // }
+  }
 }

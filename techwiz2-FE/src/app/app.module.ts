@@ -7,11 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ContactComponent } from './_service/home/service/contact/contact.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,

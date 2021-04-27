@@ -22,12 +22,39 @@ export class ListProductMenuComponent implements OnInit {
   listMenuActive;
   ListmenuDetailActive = [];
   listMenuandMenuDetail = [];
+  contain;
+
   ngOnInit(): void {
-    // this.getAllproductByMenuID(this.activatedRoute.snapshot.paramMap.get('id'));
+    // this.getAllActive();
+    console.log(this.ListCategoryActive);
+    
     this.getAllMenuActiveAndMenuDetail();
     this.Get_product_menu_detail();
   }
 
+  getAllActive() {
+    this.product.getAllProductActive().subscribe(
+      data => {
+        this.contain = data;
+        // Delete or add discount if discount > 0
+        let i = -1;
+        this.contain.forEach(e => {
+          this.ListCategoryActive.push(e)
+        });
+        this.contain.forEach(e => {
+          i++;
+          if (e.discount > 0) {
+            this.ListCategoryActive[i].price = e.price *= ((100 - e.discount) / 100)
+          }
+          else {
+            delete e.discount;
+            this.ListCategoryActive[i] = e;
+          }
+        });
+      }
+
+    )
+  }
   getAllMenuActiveAndMenuDetail() {
     this.menuService.getAllMenu().subscribe(
       data => {        
@@ -52,23 +79,31 @@ export class ListProductMenuComponent implements OnInit {
 
     )
   }
-  contain;  
   Get_product_menu_detail() {
-    this.menuService.product_menu_detail(this.route.snapshot.paramMap.get("id")).subscribe(
-      data => {
-        this.contain = data;
-        this.contain.forEach(e => {
-          console.log(e.product_id);
-          
-          this.product.getProductById(e.product_id).subscribe(
-            data => {
-              this.ListCategoryActive.push(data)
-            }
-          )
-        });
-        
+    if (this.route.snapshot.paramMap.get("id")) {
+      this.menuService.product_menu_detail(this.route.snapshot.paramMap.get("id")).subscribe(
+        data => {
+          this.contain = data;
+          this.contain.forEach(e => {
+            console.log(e.product_id);
 
-      }
-    )
+            this.product.getProductById(e.product_id).subscribe(
+              data => {
+                console.log(data);
+
+                this.ListCategoryActive.push(data)
+              }
+            )
+          });
+
+
+        }
+      )
+    }
+
+    else {
+      this.getAllActive();
+    }
+    
   }
 }

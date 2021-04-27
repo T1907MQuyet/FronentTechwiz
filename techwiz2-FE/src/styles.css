@@ -13,7 +13,9 @@ input[type="number"] {
 h3 {
     font-variant: lining-nums;
 }
-
+a {
+    cursor: pointer;
+}
 .d-block {
     display: block;
 }
