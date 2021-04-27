@@ -49,7 +49,8 @@ export class CheckoutComponent implements OnInit {
       fullname: ['', [Validators.required, Validators.minLength(5), Validators.pattern("^[a-zA-z ]*$")]],
       email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       address: ['', [Validators.required, Validators.minLength(5)]],
-      payment: ['', [Validators.required]],
+      payment: ['CashOnDelivery', [Validators.required]],
+      phone: ['', [Validators.required, Validators.minLength(10), Validators.pattern("^[0-9]*$")]],
       note: ['']
     })
   }
@@ -58,7 +59,6 @@ export class CheckoutComponent implements OnInit {
   clickisDis = false;
   // (1)
   createOrder(val) {
-    console.log(val);
 
     // (2)    
     if (this.formCheckout.status != 'INVALID') {
@@ -70,9 +70,10 @@ export class CheckoutComponent implements OnInit {
         "status": 1,
         "payment": val.payment,
         "total_price": this.totalPrice,
-        "phone_number": this.authen.currentUserValue.phonenumber,
+        "phone_number": val.phone,
         "customer_id": this.authen.currentUserValue.customer_id
       }
+      console.log(data);
 
       this.orderService.CreateOrderInDb(data).subscribe(
         data => {

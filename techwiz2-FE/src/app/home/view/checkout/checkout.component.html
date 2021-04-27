@@ -63,6 +63,28 @@
                             </ul>
                         </div>
                         <div class="col-sm-6">
+                            <label class="form-label" for="co-fn">Phone number</label>
+                            <input class="form-control bg-image-none" type="email" id="co-email" formControlName="phone">
+                            <ul class="list-alert--err text-capitalize list-style-none p-0 text-danger">
+                                <li *ngIf="formCheckoutF.phone.errors">
+                                    <span *ngIf="formCheckoutF.phone.errors.required && clickisDis">
+                                        phone is requied
+                                    </span>
+                                </li>
+                                <li *ngIf="formCheckoutF.phone.errors && formCheckoutF.phone.touched">
+                                    <span *ngIf="formCheckoutF.phone.value.length < 10">
+                                        Please enter at least 10 characters
+                                    </span>
+                                </li>
+                                <li *ngIf="formCheckoutF.phone.errors">
+                                    <span *ngIf="formCheckoutF.phone.errors.pattern && formCheckoutF.phone.touched">
+                                        Please enter a standard phone address, for example:
+                                        0123456789
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
                             <label class="form-label" for="co-address">Address <span
                                     class="text-danger">*</span></label>
                             <input class="form-control" type="text" id="co-address" formControlName="address">
@@ -87,7 +109,7 @@
                             <label class="form-label" for="co-address">Payment <span
                                     class="text-danger">*</span></label>
                             <select formControlName="payment" class="form-control">
-                                <option value="CashOnDelivery">Cash on Delivery</option>
+                                <option value="CashOnDelivery" [selected]="selected">Cash on Delivery</option>
                                 <option value="Paypal">Paypal</option>
                             </select>
 
