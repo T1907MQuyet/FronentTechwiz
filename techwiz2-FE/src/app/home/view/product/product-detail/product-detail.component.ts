@@ -38,6 +38,7 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getProductDetail(this.activatedRoute.snapshot.paramMap.get("id")).subscribe(
       data => {
         this.contain = data;
+        
         this.inforProduct = {
           "product_id": this.contain.product_id,
           "product_name": this.contain.product_name,
@@ -59,14 +60,6 @@ export class ProductDetailComponent implements OnInit {
 
       }
     )
-
-    // for (const key in this.listOrderInLocal) {
-    //   if (Object.prototype.hasOwnProperty.call(this.listOrderInLocal, key)) {
-    //     const element = this.listOrderInLocal[key];
-    //     this.orderSv.pushOrder(element);
-        
-    //   }
-    // }
 
   }
 

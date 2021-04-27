@@ -32,7 +32,7 @@
                     <div class="ssp pull-left">{{ inforProduct.price | currency:'$' }} <span>{{ inforProduct.discount
                         | currency:'$' }}</span></div>
                 </div>
-                <p>{{ inforProduct.descriptions }}</p>
+                <p [innerHTML]="inforProduct.descriptions"></p>
                 <div class="quantity">
                     <div class="d-inline-flex">
                         <button type="button" class="btn btn-default" (click)="plusOrMinus(true, quantityInput.value)" >
